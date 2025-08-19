@@ -3,136 +3,235 @@
 @section('content')
 
 <!-- Hero Section -->
-<section class="hero d-flex align-items-center" style="min-height: 90vh; background: linear-gradient(135deg, #ffbfbf, #800000);">
+<section class="hero d-flex align-items-center justify-content-center text-center text-white"
+    style="background: url('{{ asset('images/hero.png') }}') no-repeat center center/cover; min-height: 100vh; position: relative;">
+
+    <!-- Overlay gelap -->
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);"></div>
+
+    <!-- Konten -->
+    <div class="container position-relative">
+        <h1 class="display-3 fw-bold">Selamat Datang di SMK Kamu</h1>
+        <p class="lead">Mewujudkan Generasi Unggul, Berkarakter, dan Berprestasi</p>
+        <a href="#jurusan" class="btn btn-lg btn-primary me-2">Lihat Jurusan</a>
+        <a href="#profil" class="btn btn-lg btn-outline-light">Profil Sekolah</a>
+    </div>
+</section>
+
+<!-- Garis bawah hero -->
+<div class="hero-divider"></div>
+
+
+<!-- Section Indonesia -->
+<section class="py-5 bg-white">
     <div class="container">
         <div class="row align-items-center">
             
-            <!-- Teks -->
-            <div class="col-lg-6 text-white text-center text-lg-start">
-                <h1 class="fw-bold">SMK 17 Agustus 1945 Muncar</h1>
-                <h4 class="mt-3">“Mandiri Terampil Siap Kerja!”</h4>
-                
-                <div class="mt-4">
-                    <a href="#jurusan" class="btn btn-light me-2">Lihat Jurusan</a>
-                    <a href="#ppdb" class="btn btn-warning me-2">Daftar PPDB Online</a>
-                    <a href="#profil" class="btn btn-light">Profil Sekolah</a>
-                </div>
-                
-                <div class="mt-4">
-                    <span class="badge bg-success">Akreditasi A</span>
-                    <span class="badge bg-info">100+ Lulusan Bekerja di Industri Ternama</span>
-                </div>
+            <!-- Gambar -->
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+                <img src="{{ asset('images/bendera.jpg') }}" 
+                     alt="Bendera" 
+                     class="shadow rounded-4" 
+                     style="max-width: 300px; height: auto;">
             </div>
 
-            <!-- Foto -->
-            <div class="col-lg-6 text-center mt-4 mt-lg-0">
-                <img src="{{ asset('images/smk.jpg') }}" alt="SMK" class="img-fluid rounded-4 shadow-lg">
+            <!-- Teks -->
+            <div class="col-md-6">
+                <h2 class="fw-bold">INDONESIA</h2>
+                <p class="lead text-muted">DIRGAHAYU REPUBLIK INDONESIA</p>
             </div>
+
         </div>
     </div>
-<!-- Wave -->
-<div class="custom-shape-divider-bottom-hero">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-    <path d="M985.66,92.83C906.67,72,823,31,743.05,14.19c-82.52-17.33-168.54-16.11-250.87.36-57.29,11.74-113.2,31.47-172,41.72C241.91,69,166.09,66.72,94.09,52.6,63,46.53,31.48,37.53,0,27.35V120H1200V95.8C1136.54,107.47,1062.54,110.91,985.66,92.83Z"
-          class="shape-fill"></path>
+</section>
+
+
+<!-- Section HUT -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center flex-md-row-reverse">
+      <!-- Gambar -->
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="{{ asset('images/logo80.png') }}" alt="HUT 80 RI" class="img-fluid shadow rounded-4">
+      </div>
+      <!-- Teks -->
+      <div class="col-md-6">
+        <h2 class="fw-bold">HUT ke-80 RI</h2>
+        <p class="lead text-muted">"Bersatu Berdaulat, Rakyat Sejahtera, Indonesia Maju"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="line-height:0; transform: scaleY(-1);">
+  <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#800000" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,128C672,107,768,85,864,106.7C960,128,1056,192,1152,213.3C1248,235,1344,213,1392,202.7L1440,192L1440,0L0,0Z"></path>
+  </svg>
+</div> 
+
+<!-- Section Menu Tengah -->
+<section class="py-5" style="background-color:#800000; color:white;">
+  <div class="container">
+    <div class="d-flex justify-content-center flex-wrap gap-4">
+
+      <!-- Item 1 -->
+      <a href="#kejuaraan" class="text-decoration-none">
+        <div class="menu-card text-center rounded-4 p-4 bg-white text-dark">
+          <img src="{{ asset('images/icons/piala.png') }}" alt="Kejuaraan" style="width:60px; height:60px;">
+          <h5 class="fw-bold mt-3">Kejuaraan</h5>
+        </div>
+      </a>
+
+      <!-- Item 2 -->
+      <a href="#ekstra" class="text-decoration-none">
+        <div class="menu-card text-center rounded-4 p-4 bg-white text-dark">
+          <img src="{{ asset('images/icons/bola.png') }}" alt="Ekstra" style="width:60px; height:60px;">
+          <h5 class="fw-bold mt-3">Ekstra</h5>
+        </div>
+      </a>
+
+      <!-- Item 3 -->
+      <a href="#berita" class="text-decoration-none">
+        <div class="menu-card text-center rounded-4 p-4 bg-white text-dark">
+          <img src="{{ asset('images/icons/berita.png') }}" alt="Berita" style="width:60px; height:60px;">
+          <h5 class="fw-bold mt-3">Berita</h5>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+              <!-- Wave keluar ke putih -->
+<div class="wave" style="line-height:0;">
+  <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#800000" d="M0,100 C480,0 960,100 1440,0 L1440,100 L0,100 Z"></path>
   </svg>
 </div>
-</section>
 
-<!-- Tentang Sekolah -->
-<section id="profil" class="py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-3">Tentang Sekolah</h2>
-        <p class="lead text-muted">SMK 17 Agustus 1945 Muncar berkomitmen mencetak generasi muda yang terampil, mandiri, dan siap bersaing di dunia kerja maupun melanjutkan pendidikan ke jenjang lebih tinggi.</p>
+<!-- Section Prestasi -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Kejuaraan</h2>
+    <div class="row align-items-center">
+      
+      <!-- Kolom Kiri: Gambar -->
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="{{ asset('images/kejuaraan.png') }}" 
+             alt="Ilustrasi Olahraga" 
+             class="img-fluid" 
+             style="max-width: 300px;">
+      </div>
+
+      <!-- Kolom Kanan: Carousel -->
+      <div class="col-md-6">
+        <div id="prestasiCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <!-- Item 1 -->
+            <div class="carousel-item active" data-bs-interval="2000">
+              <div class="card shadow border-0 rounded-4" style="align-items:center; display:flex; justify-content:center; text-align:left; max-width: 500px;">
+                <img src="{{ asset('images/prestasi1.png') }}" 
+                     class="card-img-top rounded-top-4" 
+                     alt="Prestasi 1"
+                     style="max-width: 200px;">
+                <div class="card-body">
+                  <h5 class="fw-bold">Juara 2 Lomba Content Creator Tingkat SMK Swasta Kabupaten Banyuwangi</h5>
+                  <p class="text-muted">Selamat kepada HANUM SYAFIRA MURTI siswi XI Akuntansi Keuangan Lembaga SMK 17 Agustus 1945 Muncar yang telah mewakili sekolah dan berjuang.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="carousel-item" data-bs-interval="2000">
+              <div class="card shadow border-0 rounded-4" style="align-items:center; display:flex; justify-content:center; text-align:left; max-width: 500px;">
+                <img src="{{ asset('images/prestasi2.jpg') }}" 
+                     class="card-img-top rounded-top-4" 
+                     alt="Prestasi 2" style="max-width: 200px; ">
+                <div class="card-body">
+                  <h5 class="fw-bold">Juara 2 Lomba Content Creator Tingkat SMK Swasta Kabupaten Banyuwangi</h5>
+                  <p class="text-muted">Selamat kepada DENIS PRAYOGA siswa XI Perhotelan SMK 17 Agustus 1945 Muncar yang telah mewakili sekolah dan berjuang.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+             <div class="carousel-item"  data-bs-interval="2000">
+              <div class="card shadow border-0 rounded-4" style="align-items:center; display:flex; justify-content:center; text-align:left; max-width: 500px;">
+                <img src="{{ asset('images/prestasi3.png') }}" 
+                     class="card-img-top rounded-top-4" 
+                     alt="Prestasi 3"
+                     style="max-width: 200px;">
+                <div class="card-body">
+                  <h5 class="fw-bold">Juara 2 dalam "LKS Rekayasa Perangkat Lunak"</h5>
+                  <p class="text-muted">Selamat kepada CHARLES AGUSTIAN PUTRA, siswa XI RPL SMK 17 Agustus 1945 Muncar Tingkat Lomba "LKS Rekayasa Perangkat Lunak" Kabupaten 2025 pada bidang lomba WEB Technologies.</p>
+                </div>
+              </div>
+            </div> 
+
     </div>
+  </div>
 </section>
 
-<!-- Jurusan -->
-<section id="jurusan" class="py-5">
+<!-- Ekstrakurikuler Section -->
+<section class="py-5 bg-white">
     <div class="container">
-        <h2 class="fw-bold text-center mb-5">Jurusan Kami</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-lg border-0 rounded-4 hover-card">
-                    <img src="/images/rpl.jpg" class="card-img-top rounded-top-4" alt="RPL">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">Rekayasa Perangkat Lunak</h5>
-                        <p class="text-muted">Belajar membuat aplikasi, website, dan sistem berbasis digital.</p>
-                        <a href="{{ url('/jurusan/rpl') }}" class="btn btn-outline-primary rounded-pill">Detail</a>
+        <h2 class="text-center fw-bold mb-5">Ekstrakurikuler</h2>
+
+        <div class="row align-items-center">
+            <!-- Kolom kiri: Carousel untuk logo + nama -->
+            <div class="col-md-6 text-center">
+                <div id="ekstraCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <!-- Item 1 -->
+                        <div class="carousel-item active">
+                            <div class="d-flex flex-column align-items-center">
+                                <img src="{{ asset('images/ekstra/basket.png') }}" alt="Basket" style="max-width:220px;">
+                                <h5 class="fw-semibold mt-3">Virus SMANDA</h5>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="carousel-item">
+                            <div class="d-flex flex-column align-items-center">
+                                <img src="{{ asset('images/ekstra/pramuka.png') }}" alt="Pramuka" style="max-width:220px;">
+                                <h5 class="fw-semibold mt-3">Pramuka</h5>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="carousel-item">
+                            <div class="d-flex flex-column align-items-center">
+                                <img src="{{ asset('images/ekstra/paskibra.png') }}" alt="Paskibra" style="max-width:220px;">
+                                <h5 class="fw-semibold mt-3">Paskibra</h5>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- Tombol Panah -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#ekstraCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-success rounded-circle p-3" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#ekstraCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-success rounded-circle p-3" aria-hidden="true"></span>
+                    </button>
                 </div>
             </div>
-            <!-- Tambahkan jurusan lain -->
+
+            <!-- Kolom kanan: Ilustrasi tetap -->
+            <div class="col-md-6 text-center">
+                <img src="{{ asset('images/ekstrakulikuler.png') }}" alt="Ilustrasi" style="max-width:350px;">
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Berita -->
-<section id="berita" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="fw-bold text-center mb-5">Berita Terbaru</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-lg border-0 rounded-4 hover-card">
-                    <img src="/images/berita1.jpg" class="card-img-top rounded-top-4" alt="Berita 1">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Judul Berita</h5>
-                        <p class="text-muted">Ringkasan singkat berita terbaru sekolah.</p>
-                        <a href="{{ url('/berita/1') }}" class="btn btn-outline-primary rounded-pill">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tambahin berita lain -->
-        </div>
-        <div class="text-center mt-4">
-            <a href="{{ url('/berita') }}" class="btn btn-primary rounded-pill px-4">Lihat Semua Berita</a>
-        </div>
-    </div>
-</section>
+
 
 @endsection
 
-@push('styles')
-<style>
-/* Hero Modern */
-.hero {
-    min-height: 100vh;
-    background: url("{{ asset('images/smk.jpg') }}") center/cover no-repeat;
-    position: relative;
-}
-.hero .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-}
-
-/* Hover Card */
-.hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hover-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-.custom-shape-divider-bottom-hero {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-bottom-hero svg {
-    position: relative;
-    display: block;
-    width: calc(133% + 1.3px);
-    height: 100px;
-}
-
-.custom-shape-divider-bottom-hero .shape-fill {
-    fill: #f8f9fa; /* warna section berikutnya (putih/abu bg-light) */
-}
-
-</style>
-@endpush
+<!-- Panggil CSS & JS -->
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<script src="{{ asset('js/script.js') }}"></script>

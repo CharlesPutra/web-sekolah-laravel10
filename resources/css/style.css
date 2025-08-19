@@ -1,0 +1,42 @@
+/* Hero Modern */
+.hero {
+    min-height: 100vh;
+    background: url("../images/smk.jpg") center/cover no-repeat;
+    position: relative;
+}
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+/* Hover Card */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Wave bawah Hero */
+.custom-shape-divider-bottom-hero {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-hero svg {
+    position: relative;
+    display: block;
+    width: calc(133% + 1.3px);
+    height: 100px;
+}
+
+.custom-shape-divider-bottom-hero .shape-fill {
+    fill: #f8f9fa; /* warna section berikutnya (putih/abu bg-light) */
+}
+
