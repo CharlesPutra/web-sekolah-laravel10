@@ -17,6 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/home', function () {
+    return view('home'); // otomatis cari resources/views/home.blade.php
+})->name('home');
+
+// web.php
+Route::get('/visi-misi', function () {
+    return view('visiMisi');
+})->name('visiMisi');
+
+Route::get('/profil', function () {
+    return view('profil'); // ambil resources/views/profil.blade.php
+})->name('profil');
+
+// Route halaman Postingan
+Route::get('/postingan', function () {
+    return view('postingan'); // pastikan file resources/views/postingan.blade.php ada
+})->name('postingan');
+

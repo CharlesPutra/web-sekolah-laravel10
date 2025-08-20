@@ -142,6 +142,45 @@ img.img-bendera.img-fluid {
     background-size: 100% 100%;
 }
 
+.btn-maroon {
+  background-color: #800000;
+  color: #fff;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-maroon:hover {
+  background-color: #a52a2a;
+  transform: scale(1.05);
+}
+
+/* Biar wave nggak numpuk di atas section berikutnya */
+.wave-bottom {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: -1px; /* hilangkan celah putih */
+  line-height: 0;
+  position: relative;
+  z-index: 0;
+}
+
+/* Tarik section Lokasi naik, tapi tetap beri ruang atas */
+#lokasi {
+  position: relative;
+  z-index: 1;
+  margin-top: -60px;   /* geser naik */
+  padding-top: 90px;   /* ruang aman agar judul nggak ketutup */
+}
+
+/* Opsional: sedikit beda untuk layar besar */
+@media (min-width: 992px) {
+  #lokasi {
+    margin-top: -90px;
+    padding-top: 120px;
+  }
+}
+
+
 
 /* Animasi */
 @keyframes fadeInDown {

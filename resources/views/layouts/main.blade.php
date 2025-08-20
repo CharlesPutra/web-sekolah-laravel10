@@ -13,6 +13,10 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
     <style>
        /* Warna dasar navbar */
 .bg-maroon {
@@ -152,26 +156,28 @@
   <!-- Menu -->
 <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">
+                    <i class="bi bi-house-door me-1"></i> Beranda
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('visiMisi') }}">
+                    <i class="bi bi-bullseye me-1"></i> Visi dan Misi
+                </a>
+            </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-house-door me-1"></i> Beranda
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-bullseye me-1"></i> Visi dan Misi
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('profil') }}">
                 <i class="bi bi-building me-1"></i> Profil
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-journal-text me-1"></i> Postingan
-            </a>
+
         </li>
+        <li class="nav-item">
+    <a class="nav-link" href="{{ route('postingan') }}">
+        <i class="bi bi-journal-text me-1"></i> Postingan
+    </a>
+</li>
     </ul>
 </div>
 
@@ -240,12 +246,24 @@
 </footer>
 <!-- End Footer -->
 
+
+
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // durasi animasi 1 detik
+    once: true,     // animasi hanya sekali
+  });
+</script>
+
 </body>
 
 </html>
