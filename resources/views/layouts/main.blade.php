@@ -185,7 +185,8 @@
                 <!-- Search & Login -->
                 <form class="d-flex">
                     <button class="search-btn"><i class="bi bi-search"></i></button>
-                    <button class="login-btn">Login</button>
+                    {{-- <button class="login-btn">Login</button> --}}
+                    <a href="{{ route('ShowLogin') }}" class="login-btn" style="text-decoration: none">Login</a>
                 </form>
             </div>
         </div>
