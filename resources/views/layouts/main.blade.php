@@ -172,12 +172,12 @@
             </a>
         </li>
 
-        </li>
         <li class="nav-item">
-    <a class="nav-link" href="{{ route('postingan') }}">
+    <a class="nav-link" href="{{ route('postingan.index') }}">
         <i class="bi bi-journal-text me-1"></i> Postingan
     </a>
 </li>
+
     </ul>
 </div>
 

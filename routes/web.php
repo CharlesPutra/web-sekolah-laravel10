@@ -30,8 +30,15 @@ Route::get('/profil', function () {
     return view('profil'); // ambil resources/views/profil.blade.php
 })->name('profil');
 
-// Route halaman Postingan
 Route::get('/postingan', function () {
-    return view('postingan'); // pastikan file resources/views/postingan.blade.php ada
-})->name('postingan');
+    $page = request('page', 1); // ambil ?page= dari URL
+    return view('postingan', compact('page'));
+})->name('postingan.index');
 
+Route::get('/post/{id}', function ($id) {
+    return view('show', compact('id'));
+})->name('post.show');
+
+Route::get('/jurusan/{slug}', function ($slug) {
+    return view('deskripsiJurusan', ['slug' => $slug]);
+})->name('jurusan.show');

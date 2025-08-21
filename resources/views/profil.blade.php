@@ -12,7 +12,7 @@
     <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6);"></div>
     <div class="container text-center position-relative">
         <h1 class="display-4 fw-bold">Profil SMK 17 Agustus 1945 Muncar</h1>
-        <p class="lead">Mandii, Terampil Siap KERJA!</p>
+        <p class="lead">Mandiri, Terampil Siap KERJA!</p>
     </div>
 </section>
 
@@ -56,9 +56,13 @@
           <a href="{{ asset('images/akl.png') }}" target="_blank">
             <img src="{{ asset('images/akl.png') }}" class="card-img-top" alt="AKL" style="height:180px; object-fit:cover;">
           </a>
-          <div class="card-body">
-            <h5 class="fw-semibold">Akuntansi & Keuangan Lembaga (AKL)</h5>
-          </div>
+                <div class="card-body">
+        <h5 class="fw-semibold">
+          <a href="{{ route('jurusan.show', 'akl') }}" class="text-decoration-none text-dark">
+            Akuntansi & Keuangan Lembaga (AKL)
+          </a>
+        </h5>
+      </div>
         </div>
       </div>
 
@@ -69,8 +73,12 @@
             <img src="{{ asset('images/bdp.png') }}" class="card-img-top" alt="BDP" style="height:180px; object-fit:cover;">
           </a>
           <div class="card-body">
-            <h5 class="fw-semibold">Bisnis Daring & Pemasaran (BDP)</h5>
-          </div>
+  <h5 class="fw-semibold">
+    <a href="{{ route('jurusan.show', 'bdp') }}" class="text-decoration-none text-dark">
+      Bisnis Daring & Pemasaran (BDP)
+    </a>
+  </h5>
+</div>
         </div>
       </div>
 
@@ -81,8 +89,12 @@
             <img src="{{ asset('images/ph.png') }}" class="card-img-top" alt="PH" style="height:180px; object-fit:cover;">
           </a>
           <div class="card-body">
-            <h5 class="fw-semibold">Perhotelan (PH)</h5>
-          </div>
+  <h5 class="fw-semibold">
+    <a href="{{ route('jurusan.show', 'ph') }}" class="text-decoration-none text-dark">
+      Perhotelan (PH)
+    </a>
+  </h5>
+</div>
         </div>
       </div>
 
@@ -93,8 +105,12 @@
             <img src="{{ asset('images/rpl.png') }}" class="card-img-top" alt="RPL" style="height:180px; object-fit:cover;">
           </a>
           <div class="card-body">
-            <h5 class="fw-semibold">Rekayasa Perangkat Lunak (RPL)</h5>
-          </div>
+  <h5 class="fw-semibold">
+    <a href="{{ route('jurusan.show', 'rpl') }}" class="text-decoration-none text-dark">
+      Rekayasa Perangkat Lunak (RPL)
+    </a>
+  </h5>
+</div>
         </div>
       </div>
 
@@ -105,8 +121,12 @@
             <img src="{{ asset('images/tkr&tp.png') }}" class="card-img-top" alt="TKRO" style="height:180px; object-fit:cover;">
           </a>
           <div class="card-body">
-            <h5 class="fw-semibold">Teknik Kendaraan Ringan Otomotif (TKRO)</h5>
-          </div>
+  <h5 class="fw-semibold">
+    <a href="{{ route('jurusan.show', 'tkro') }}" class="text-decoration-none text-dark">
+      Teknik Kendaraan Ringan Otomotif (TKRO)
+    </a>
+  </h5>
+</div>
         </div>
       </div>
 
@@ -117,8 +137,12 @@
             <img src="{{ asset('images/tkr&tp.png') }}" class="card-img-top" alt="TP" style="height:180px; object-fit:cover;">
           </a>
           <div class="card-body">
-            <h5 class="fw-semibold">Teknik Pemesinan (TP)</h5>
-          </div>
+  <h5 class="fw-semibold">
+    <a href="{{ route('jurusan.show', 'tp') }}" class="text-decoration-none text-dark">
+      Teknik Pemesinan (TP)
+    </a>
+  </h5>
+</div>
         </div>
       </div>
 
@@ -141,6 +165,12 @@
   .hover-card:hover img {
     transform: scale(1.1);
   }
+  .hover-card a.text-dark:hover {
+    color: #800000 !important;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
 </style>
 
 <!-- Prestasi -->

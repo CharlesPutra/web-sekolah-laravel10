@@ -290,6 +290,8 @@
   </div>
 </section> <br>
 
+<p>tes</p>
+
 @endsection
 
 <!-- Panggil CSS & JS -->
