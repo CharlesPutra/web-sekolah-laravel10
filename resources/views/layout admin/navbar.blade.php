@@ -96,7 +96,7 @@
                         <a class="nav-link" href="{{ route('berita.index') }}"><i class="bi bi-tags"></i> Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('jurusan.index') }}"><i class="bi bi-people"></i> Jurusan</a>
+                        <a class="nav-link" href="{{ route('keterampilan.index') }}"><i class="bi bi-people"></i> Jurusan</a>
                     </li>
                    
                     @auth

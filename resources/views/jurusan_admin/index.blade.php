@@ -55,7 +55,7 @@
             <h2 class="fw-bold text-dark">
                 <i class="bi bi-list-ul me-2 text-primary"></i>Daftar Jurusan
             </h2>
-            <a href="{{ route("jurusan.create") }}" class="btn btn-primary shadow-sm">
+            <a href="{{ route('keterampilan.create') }}" class="btn btn-primary shadow-sm">
                 <i class="bi bi-plus-circle me-1"></i> Tambah Jurusan
             </a>
         </div>

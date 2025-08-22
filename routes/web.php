@@ -64,7 +64,7 @@ Route::middleware('auth')->group(function() {
     Route::resource('/prestasi',PrestasiController::class);
     
     //route jurusan
-    Route::resource('/jurusan', JurusanController::class);
+    Route::resource('/keterampilan', JurusanController::class);
     //route berita
     Route::resource('/berita', BeritaController::class);
 
