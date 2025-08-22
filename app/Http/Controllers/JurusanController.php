@@ -14,7 +14,7 @@ class JurusanController extends Controller
     public function index()
     {
         $datas = Jurusan::paginate(6);
-        return view('jurusan admin.index', compact('datas'));
+        return view('jurusan_admin.index', compact('datas'));
     }
 
     /**
@@ -22,7 +22,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view('jurusan admin.create');
+        return view('jurusan_admin.create');
     }
 
     /**

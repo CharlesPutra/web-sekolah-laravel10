@@ -62,12 +62,12 @@ Route::middleware('auth')->group(function() {
 
     //route prestasi
     Route::resource('/prestasi',PrestasiController::class);
-
+    
+    //route jurusan
+    Route::resource('/jurusan', JurusanController::class);
     //route berita
     Route::resource('/berita', BeritaController::class);
 
-    //route jurusan
-    Route::resource('/jurusan', JurusanController::class);
 
     //route logout
     Route::post('/logout',[AuthController::class, 'logout'])->name('logout');
