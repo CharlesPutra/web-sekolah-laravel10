@@ -10,7 +10,7 @@
                         <i class="bi bi-plus-circle"></i> Tambah Menu
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('prestasi.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('keterampilan.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             
                             {{-- Gambar --}}
@@ -25,11 +25,11 @@
 
                             {{-- juara --}}
                             <div class="mb-3">
-                                <label for="juara" class="form-label">Juara</label>
-                                <input type="text" name="juara" id="juara"
-                                    class="form-control @error('juara') is-invalid @enderror"
-                                    value="{{ old('juara') }}" placeholder="Masukkan Kejuaraan">
-                                @error('juara')
+                                <label for="nama_jurusan" class="form-label">Nama jurusan</label>
+                                <input type="text" name="nama_jurusan" id="nama_jurusan"
+                                    class="form-control @error('nama_jurusan') is-invalid @enderror"
+                                    value="{{ old('nama_jurusan') }}" placeholder="Masukkan nama_jurusan">
+                                @error('nama_jurusan')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

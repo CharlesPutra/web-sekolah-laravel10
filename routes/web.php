@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,18 +25,20 @@ use Illuminate\Support\Facades\Route;
 //route untuk bagian user
 Route::middleware('guest')->group(function () {
 
+    //route home
     Route::get('/', function () {
         return view('home'); // otomatis cari resources/views/home.blade.php
     })->name('home');
+    Route::get('/', [HomeController::class, 'kejuaraan'])->name('home');
     
     // web.php
     Route::get('/visi-misi', function () {
         return view('visiMisi');
     })->name('visiMisi');
     
-    Route::get('/profil', function () {
-        return view('profil'); // ambil resources/views/profil.blade.php
-    })->name('profil');
+    //route profil
+    Route::get('/profil/{id}', [ProfileController::class,'deskripsi'])->name('profil.show');
+    Route::get('/profil',[ProfileController::class, 'keterampilan'])->name('profil');
     
     Route::get('/postingan', function () {
         $page = request('page', 1); // ambil ?page= dari URL
@@ -44,9 +49,6 @@ Route::middleware('guest')->group(function () {
         return view('show', compact('id'));
     })->name('post.show');
     
-    Route::get('/jurusan/{slug}', function ($slug) {
-        return view('deskripsiJurusan', ['slug' => $slug]);
-    })->name('jurusan.show');
 
     //route login
     Route::get('/login', [AuthController::class, 'ShowLogin'])->name('ShowLogin');

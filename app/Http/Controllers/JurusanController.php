@@ -46,7 +46,7 @@ class JurusanController extends Controller
             'nama_jurusan' => $request->nama_jurusan,
             'deskripsi' => $request->deskripsi,
         ]);
-        return redirect()->route('jurusan.index')->with('success', 'Data jurusan berhasil di tambahkan');
+        return redirect()->route('keterampilan.index')->with('success', 'Data jurusan berhasil di tambahkan');
     }
 
     /**
@@ -63,7 +63,7 @@ class JurusanController extends Controller
     public function edit(string $id)
     {
         $edit = Jurusan::findOrFail($id);
-        return view('jurusan admin.edit', compact('edit'));
+        return view('jurusan_admin.edit', compact('edit'));
     }
 
     /**
@@ -93,7 +93,7 @@ class JurusanController extends Controller
             'deskripsi' => $request->deskripsi,
         ]);
 
-        return redirect()->route('jurusan.index')->with('warning', 'Data jurusan berhasil di ubah');
+        return redirect()->route('keterampilan.index')->with('warning', 'Data jurusan berhasil di ubah');
     }
 
     /**
@@ -109,6 +109,6 @@ class JurusanController extends Controller
 
         $hapus->delete();
 
-        return redirect()->route('jurusan.index')->with('danger', 'Data prestasi berhasil di hapus');
+        return redirect()->route('keterampilan.index')->with('danger', 'Data prestasi berhasil di hapus');
     }
 }

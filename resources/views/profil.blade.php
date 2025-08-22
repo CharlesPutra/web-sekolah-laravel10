@@ -2,355 +2,377 @@
 @extends('layouts.main')
 
 @section('content')
-<!-- AOS CSS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<!-- Hero Section -->
-<section class="hero text-white d-flex align-items-center justify-content-center" 
-    style="background: url('{{ asset('images/upacara.jpg') }}') center/cover no-repeat; min-height: 70vh; position: relative;"
-    data-aos="fade-down">
-    <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6);"></div>
-    <div class="container text-center position-relative">
-        <h1 class="display-4 fw-bold">Profil SMK 17 Agustus 1945 Muncar</h1>
-        <p class="lead">Mandiri, Terampil Siap KERJA!</p>
-    </div>
-</section>
-
-<!-- Tentang Sekolah -->
-<section class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold position-relative d-inline-block" data-aos="fade-up">
-        Tentang Sekolah
-        <span style="display:block; height:3px; width:60px; background:#800000; margin:8px auto 0; border-radius:5px;"></span>
-      </h2>
-    </div>
-    
-    <div class="row justify-content-center">
-      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-        <div class="card border-0 shadow-lg p-4 rounded-4 text-center" style="background: rgba(255,255,255,0.9);">
-          <div class="mb-3">
-            <i class="bi bi-building-check display-4 text-danger"></i>
-          </div>
-          <p class="fs-5 text-muted">
-            <strong>SMK 17 Agustus 1945 Muncar</strong> berdiri pada <b>1 Juli 1987</b>, berlokasi di 
-            <i>Jalan Raya Blambangan No.37, Muncar, Banyuwangi, Jawa Timur</i>. <br><br>
-            Dengan akreditasi <b>B</b> dan sertifikasi <b>ISO 9001:2008</b>, sekolah ini berkomitmen mencetak siswa yang 
-            siap menghadapi dunia kerja dan menjadi generasi unggul.
-          </p>
+    <!-- Hero Section -->
+    <section class="hero text-white d-flex align-items-center justify-content-center"
+        style="background: url('{{ asset('images/upacara.jpg') }}') center/cover no-repeat; min-height: 70vh; position: relative;"
+        data-aos="fade-down">
+        <div class="overlay"
+            style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6);"></div>
+        <div class="container text-center position-relative">
+            <h1 class="display-4 fw-bold">Profil SMK 17 Agustus 1945 Muncar</h1>
+            <p class="lead">Mandiri, Terampil Siap KERJA!</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Program Keahlian -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Program Keahlian</h2>
-    <div class="row g-4">
-      
-      <!-- Card 1 -->
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-          <a href="{{ asset('images/akl.png') }}" target="_blank">
-            <img src="{{ asset('images/akl.png') }}" class="card-img-top" alt="AKL" style="height:180px; object-fit:cover;">
-          </a>
-                <div class="card-body">
-        <h5 class="fw-semibold">
-          <a href="{{ route('jurusan.show', 'akl') }}" class="text-decoration-none text-dark">
-            Akuntansi & Keuangan Lembaga (AKL)
-          </a>
-        </h5>
-      </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-          <a href="{{ asset('images/bdp.png') }}" target="_blank">
-            <img src="{{ asset('images/bdp.png') }}" class="card-img-top" alt="BDP" style="height:180px; object-fit:cover;">
-          </a>
-          <div class="card-body">
-  <h5 class="fw-semibold">
-    <a href="{{ route('jurusan.show', 'bdp') }}" class="text-decoration-none text-dark">
-      Bisnis Daring & Pemasaran (BDP)
-    </a>
-  </h5>
-</div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-          <a href="{{ asset('images/ph.png') }}" target="_blank">
-            <img src="{{ asset('images/ph.png') }}" class="card-img-top" alt="PH" style="height:180px; object-fit:cover;">
-          </a>
-          <div class="card-body">
-  <h5 class="fw-semibold">
-    <a href="{{ route('jurusan.show', 'ph') }}" class="text-decoration-none text-dark">
-      Perhotelan (PH)
-    </a>
-  </h5>
-</div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-          <a href="{{ asset('images/rpl.png') }}" target="_blank">
-            <img src="{{ asset('images/rpl.png') }}" class="card-img-top" alt="RPL" style="height:180px; object-fit:cover;">
-          </a>
-          <div class="card-body">
-  <h5 class="fw-semibold">
-    <a href="{{ route('jurusan.show', 'rpl') }}" class="text-decoration-none text-dark">
-      Rekayasa Perangkat Lunak (RPL)
-    </a>
-  </h5>
-</div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
-        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-          <a href="{{ asset('images/tkr&tp.png') }}" target="_blank">
-            <img src="{{ asset('images/tkr&tp.png') }}" class="card-img-top" alt="TKRO" style="height:180px; object-fit:cover;">
-          </a>
-          <div class="card-body">
-  <h5 class="fw-semibold">
-    <a href="{{ route('jurusan.show', 'tkro') }}" class="text-decoration-none text-dark">
-      Teknik Kendaraan Ringan Otomotif (TKRO)
-    </a>
-  </h5>
-</div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
-        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-          <a href="{{ asset('images/tkr&tp.png') }}" target="_blank">
-            <img src="{{ asset('images/tkr&tp.png') }}" class="card-img-top" alt="TP" style="height:180px; object-fit:cover;">
-          </a>
-          <div class="card-body">
-  <h5 class="fw-semibold">
-    <a href="{{ route('jurusan.show', 'tp') }}" class="text-decoration-none text-dark">
-      Teknik Pemesinan (TP)
-    </a>
-  </h5>
-</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-  .hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 12px;
-  }
-  .hover-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  }
-  .hover-card img {
-    transition: transform 0.4s ease;
-  }
-  .hover-card:hover img {
-    transform: scale(1.1);
-  }
-  .hover-card a.text-dark:hover {
-    color: #800000 !important;
-    text-decoration: underline;
-    transition: 0.3s;
-}
-
-</style>
-
-<!-- Prestasi -->
-<section class="py-5" style="background: #f9f9f9;">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold text-dark">Prestasi</h2>
-      <p class="text-muted">Pencapaian siswa-siswi SMK 17 Agustus 1945 Muncar</p>
-      <div class="mx-auto" style="width:80px; height:4px; background:#800000; border-radius:5px;"></div>
-    </div>
-
-    <div id="prestasiCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-      <div class="carousel-inner">
-
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-          <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-trophy-fill display-4 text-warning mb-3"></i>
-                <h5 class="fw-bold">Juara 2 LKS Perhotelan</h5>
-                <p class="text-muted">Meraih Juara 2 LKS bidang Perhotelan tingkat Kabupaten Banyuwangi.</p>
-              </div>
+    <!-- Tentang Sekolah -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold position-relative d-inline-block" data-aos="fade-up">
+                    Tentang Sekolah
+                    <span
+                        style="display:block; height:3px; width:60px; background:#800000; margin:8px auto 0; border-radius:5px;"></span>
+                </h2>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-award-fill display-4 text-primary mb-3"></i>
-                <h5 class="fw-bold">Akreditasi B</h5>
-                <p class="text-muted">Sekolah terakreditasi B dengan standar mutu pendidikan yang baik.</p>
-              </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 shadow-lg p-4 rounded-4 text-center"
+                        style="background: rgba(255,255,255,0.9);">
+                        <div class="mb-3">
+                            <i class="bi bi-building-check display-4 text-danger"></i>
+                        </div>
+                        <p class="fs-5 text-muted">
+                            <strong>SMK 17 Agustus 1945 Muncar</strong> berdiri pada <b>1 Juli 1987</b>, berlokasi di
+                            <i>Jalan Raya Blambangan No.37, Muncar, Banyuwangi, Jawa Timur</i>. <br><br>
+                            Dengan akreditasi <b>B</b> dan sertifikasi <b>ISO 9001:2008</b>, sekolah ini berkomitmen
+                            mencetak siswa yang
+                            siap menghadapi dunia kerja dan menjadi generasi unggul.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-star-fill display-4 text-success mb-3"></i>
-                <h5 class="fw-bold">ISO 9001:2008</h5>
-                <p class="text-muted">Bersertifikat ISO 9001:2008, menjamin kualitas manajemen sekolah.</p>
-              </div>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-people-fill display-4 text-danger mb-3"></i>
-                <h5 class="fw-bold">Tim Olahraga</h5>
-                <p class="text-muted">Meraih juara di berbagai ajang olahraga tingkat kabupaten.</p>
+    <!-- Program Keahlian -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Program Keahlian</h2>
+            <div class="row g-4">
+              {{-- looping jurusan --}}
+              @foreach ($datas as $data)
+                
+              <!-- Card 1 -->
+              <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                      <a href="{{ asset('storage/' . $data->image) }}" target="_blank">
+                          <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top" alt="AKL"
+                              style="height:180px; object-fit:cover;">
+                      </a>
+                      <div class="card-body">
+                          <h5 class="fw-semibold">
+                              <a href="{{ route('profil.show', $data->id) }}" class="text-decoration-none text-dark">
+                                  {{ $data->nama_jurusan }}
+                              </a>
+                          </h5>
+                      </div>
+                  </div>
               </div>
+              @endforeach
+                  {{-- looping jurusan --}}
+                {{-- <!-- Card 2 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                        <a href="{{ asset('images/bdp.png') }}" target="_blank">
+                            <img src="{{ asset('images/bdp.png') }}" class="card-img-top" alt="BDP"
+                                style="height:180px; object-fit:cover;">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="fw-semibold">
+                                <a href="{{ route('jurusan.show', 'bdp') }}" class="text-decoration-none text-dark">
+                                    Bisnis Daring & Pemasaran (BDP)
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                        <a href="{{ asset('images/ph.png') }}" target="_blank">
+                            <img src="{{ asset('images/ph.png') }}" class="card-img-top" alt="PH"
+                                style="height:180px; object-fit:cover;">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="fw-semibold">
+                                <a href="{{ route('jurusan.show', 'ph') }}" class="text-decoration-none text-dark">
+                                    Perhotelan (PH)
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                        <a href="{{ asset('images/rpl.png') }}" target="_blank">
+                            <img src="{{ asset('images/rpl.png') }}" class="card-img-top" alt="RPL"
+                                style="height:180px; object-fit:cover;">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="fw-semibold">
+                                <a href="{{ route('jurusan.show', 'rpl') }}" class="text-decoration-none text-dark">
+                                    Rekayasa Perangkat Lunak (RPL)
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                        <a href="{{ asset('images/tkr&tp.png') }}" target="_blank">
+                            <img src="{{ asset('images/tkr&tp.png') }}" class="card-img-top" alt="TKRO"
+                                style="height:180px; object-fit:cover;">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="fw-semibold">
+                                <a href="{{ route('jurusan.show', 'tkro') }}" class="text-decoration-none text-dark">
+                                    Teknik Kendaraan Ringan Otomotif (TKRO)
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                        <a href="{{ asset('images/tkr&tp.png') }}" target="_blank">
+                            <img src="{{ asset('images/tkr&tp.png') }}" class="card-img-top" alt="TP"
+                                style="height:180px; object-fit:cover;">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="fw-semibold">
+                                <a href="{{ route('jurusan.show', 'tp') }}" class="text-decoration-none text-dark">
+                                    Teknik Pemesinan (TP)
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-lightbulb-fill display-4 text-warning mb-3"></i>
-                <h5 class="fw-bold">Inovasi Siswa</h5>
-                <p class="text-muted">Siswa menghasilkan karya inovatif di bidang teknologi.</p>
-              </div>
+        </div>
+    </section>
+
+    <style>
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hover-card img {
+            transition: transform 0.4s ease;
+        }
+
+        .hover-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .hover-card a.text-dark:hover {
+            color: #800000 !important;
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+    </style>
+
+    <!-- Prestasi -->
+    <section class="py-5" style="background: #f9f9f9;">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-dark">Prestasi</h2>
+                <p class="text-muted">Pencapaian siswa-siswi SMK 17 Agustus 1945 Muncar</p>
+                <div class="mx-auto" style="width:80px; height:4px; background:#800000; border-radius:5px;"></div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-book-fill display-4 text-info mb-3"></i>
-                <h5 class="fw-bold">Juara Karya Ilmiah</h5>
-                <p class="text-muted">Menjadi juara lomba karya ilmiah tingkat provinsi.</p>
-              </div>
+
+            <div id="prestasiCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-trophy-fill display-4 text-warning mb-3"></i>
+                                    <h5 class="fw-bold">Juara 2 LKS Perhotelan</h5>
+                                    <p class="text-muted">Meraih Juara 2 LKS bidang Perhotelan tingkat Kabupaten
+                                        Banyuwangi.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-award-fill display-4 text-primary mb-3"></i>
+                                    <h5 class="fw-bold">Akreditasi B</h5>
+                                    <p class="text-muted">Sekolah terakreditasi B dengan standar mutu pendidikan yang baik.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-star-fill display-4 text-success mb-3"></i>
+                                    <h5 class="fw-bold">ISO 9001:2008</h5>
+                                    <p class="text-muted">Bersertifikat ISO 9001:2008, menjamin kualitas manajemen sekolah.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-people-fill display-4 text-danger mb-3"></i>
+                                    <h5 class="fw-bold">Tim Olahraga</h5>
+                                    <p class="text-muted">Meraih juara di berbagai ajang olahraga tingkat kabupaten.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-lightbulb-fill display-4 text-warning mb-3"></i>
+                                    <h5 class="fw-bold">Inovasi Siswa</h5>
+                                    <p class="text-muted">Siswa menghasilkan karya inovatif di bidang teknologi.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-book-fill display-4 text-info mb-3"></i>
+                                    <h5 class="fw-bold">Juara Karya Ilmiah</h5>
+                                    <p class="text-muted">Menjadi juara lomba karya ilmiah tingkat provinsi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-mic-fill display-4 text-primary mb-3"></i>
+                                    <h5 class="fw-bold">Lomba Pidato</h5>
+                                    <p class="text-muted">Siswa meraih juara lomba pidato bahasa Inggris tingkat kabupaten.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-palette-fill display-4 text-success mb-3"></i>
+                                    <h5 class="fw-bold">Juara Seni</h5>
+                                    <p class="text-muted">Prestasi di bidang seni lukis dan desain kreatif.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
+                                    <i class="bi bi-gear-fill display-4 text-dark mb-3"></i>
+                                    <h5 class="fw-bold">Teknologi Mesin</h5>
+                                    <p class="text-muted">Kejuaraan praktik mesin tingkat provinsi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigasi -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#prestasiCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#prestasiCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Slide 3 -->
-        <div class="carousel-item">
-          <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-mic-fill display-4 text-primary mb-3"></i>
-                <h5 class="fw-bold">Lomba Pidato</h5>
-                <p class="text-muted">Siswa meraih juara lomba pidato bahasa Inggris tingkat kabupaten.</p>
-              </div>
+    <style>
+        .prestasi-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+        }
+
+        .prestasi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+
+    <!-- Fasilitas -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-dark">Fasilitas & Infrastruktur</h2>
+                <p class="text-muted">Sarana dan prasarana penunjang kegiatan belajar mengajar</p>
+                <div class="mx-auto" style="width:90px; height:4px; background:#800000; border-radius:10px;"></div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-palette-fill display-4 text-success mb-3"></i>
-                <h5 class="fw-bold">Juara Seni</h5>
-                <p class="text-muted">Prestasi di bidang seni lukis dan desain kreatif.</p>
-              </div>
+
+            <div class="row g-4 text-center">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
+                        <i class="bi bi-building display-5 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Luas Tanah</h5>
+                        <p class="text-muted">4.863 m²</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
+                        <i class="bi bi-door-open-fill display-5 text-success mb-3"></i>
+                        <h5 class="fw-bold">Ruang Kelas</h5>
+                        <p class="text-muted">24 Ruang</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
+                        <i class="bi bi-pc-display display-5 text-danger mb-3"></i>
+                        <h5 class="fw-bold">Laboratorium Komputer</h5>
+                        <p class="text-muted">3 Ruang</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
+                        <i class="bi bi-journal-bookmark-fill display-5 text-warning mb-3"></i>
+                        <h5 class="fw-bold">Perpustakaan</h5>
+                        <p class="text-muted">1 Ruang</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                <i class="bi bi-gear-fill display-4 text-dark mb-3"></i>
-                <h5 class="fw-bold">Teknologi Mesin</h5>
-                <p class="text-muted">Kejuaraan praktik mesin tingkat provinsi.</p>
-              </div>
-            </div>
-          </div>
         </div>
+    </section>
 
-      </div>
-      
-      <!-- Navigasi -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
-  </div>
-</section>
+    <style>
+        .fasilitas-card {
+            background: #fff;
+            transition: all 0.3s ease;
+        }
 
-<style>
-  .prestasi-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #fff;
-  }
-  .prestasi-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-  }
-</style>
+        .fasilitas-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+    </style>
 
-<!-- Fasilitas -->
-<section class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold text-dark">Fasilitas & Infrastruktur</h2>
-      <p class="text-muted">Sarana dan prasarana penunjang kegiatan belajar mengajar</p>
-      <div class="mx-auto" style="width:90px; height:4px; background:#800000; border-radius:10px;"></div>
-    </div>
-
-    <div class="row g-4 text-center">
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
-          <i class="bi bi-building display-5 text-primary mb-3"></i>
-          <h5 class="fw-bold">Luas Tanah</h5>
-          <p class="text-muted">4.863 m²</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
-          <i class="bi bi-door-open-fill display-5 text-success mb-3"></i>
-          <h5 class="fw-bold">Ruang Kelas</h5>
-          <p class="text-muted">24 Ruang</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
-          <i class="bi bi-pc-display display-5 text-danger mb-3"></i>
-          <h5 class="fw-bold">Laboratorium Komputer</h5>
-          <p class="text-muted">3 Ruang</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
-          <i class="bi bi-journal-bookmark-fill display-5 text-warning mb-3"></i>
-          <h5 class="fw-bold">Perpustakaan</h5>
-          <p class="text-muted">1 Ruang</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  .fasilitas-card {
-    background: #fff;
-    transition: all 0.3s ease;
-  }
-  .fasilitas-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-  }
-</style>
-
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    easing: 'ease-in-out',
-    once: true,
-  });
-</script>
-
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    </script>
 @endsection

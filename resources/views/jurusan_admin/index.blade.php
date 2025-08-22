@@ -86,10 +86,10 @@
                         </div>
 
                         <div class="card-footer bg-white d-flex justify-content-between border-0">
-                            <a href="{{ route('jurusan.edit', $data->id) }}" class="btn btn-sm btn-outline-warning">
+                            <a href="{{ route('keterampilan.edit', $data->id) }}" class="btn btn-sm btn-outline-warning">
                                 <i class="bi bi-pencil-square"></i> Edit
                             </a>
-                            <form action="{{ route('jurusan.destroy', $data->id) }}" method="POST"
+                            <form action="{{ route('keterampilan.destroy', $data->id) }}" method="POST"
                                 onsubmit="return confirm('Yakin ingin menghapus menu ini?')">
                                 @csrf
                                 @method('DELETE')
