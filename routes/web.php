@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -40,14 +41,21 @@ Route::middleware('guest')->group(function () {
     Route::get('/profil/{id}', [ProfileController::class,'deskripsi'])->name('profil.show');
     Route::get('/profil',[ProfileController::class, 'keterampilan'])->name('profil');
     
-    Route::get('/postingan', function () {
-        $page = request('page', 1); // ambil ?page= dari URL
-        return view('postingan', compact('page'));
-    })->name('postingan.index');
+
+    //route postingan
+    Route::get('/postingan', [PostController::class, 'postingan'])->name('postingan.index');
+    Route::get('/postingan/{id}', [PostController::class, 'despost'])->name('post.show');
+
+
+
+    // Route::get('/postingan', function () {
+    //     $page = request('page', 1); // ambil ?page= dari URL
+    //     return view('postingan', compact('page'));
+    // })->name('postingan.index');
     
-    Route::get('/post/{id}', function ($id) {
-        return view('show', compact('id'));
-    })->name('post.show');
+    // Route::get('/post/{id}', function ($id) {
+    //     return view('show', compact('id'));
+    // })->name('post.show');
     
 
     //route login
