@@ -107,123 +107,166 @@
     </style>
 
 
-  <!-- Section Prestasi -->
-<section class="py-5 position-relative" style="background-color:#f8f9fa;">
-    <!-- Overlay gelap tipis -->
-    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.05);"></div>
+<!-- Section Kejuaraan -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Kejuaraan</h2>
+    
+    <!-- Kurangi jarak antar kolom -->
+    <div class="row align-items-center g-2">
 
-    <div class="container position-relative">
-        <h1 class="text-center fw-bold mb-5" data-aos="fade-up">Kejuaraan</h1>
-        <div class="row align-items-center">
+      <!-- Kolom kiri: ilustrasi -->
+      <div class="col-md-5 text-center mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="1000">
+        <img src="{{ asset('images/kejuaraan.png') }}" 
+             alt="Ilustrasi Kejuaraan" 
+             class="img-fluid" style="max-width: 300px;">
+      </div>
 
-            <!-- Kolom Kiri: Gambar -->
-            <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right">
-                <img src="{{ asset('images/kejuaraan.png') }}" alt="Ilustrasi Olahraga" class="img-fluid"
-                    style="max-width: 300px;">
-            </div>
+      <!-- Kolom kanan: carousel -->
+      <div class="col-md-7" data-aos="fade-left" data-aos-duration="1000">
+        <div id="prestasiCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
 
-            <!-- Kolom Kanan: Carousel -->
-            <div class="col-md-6" data-aos="fade-left">
-                <div id="prestasiCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
+            {{-- Looping Data Kejuaraan --}}
+            @foreach ($datas as $index => $data)
+              <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" data-bs-interval="4000">
+                <div class="card shadow-sm border-0 rounded-4 overflow-hidden" 
+                     data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
+                  
+                  <!-- Gambar full -->
+                  <div class="position-relative">
+                    <img src="{{ asset('storage/' . $data->image) }}" 
+                         class="d-block w-100" 
+                         alt="Prestasi {{ $index+1 }}" 
+                         style="height: 200px; object-fit: cover;">
+                    
+                    <!-- Badge Viewers -->
+                    <span class="badge badge-maroon position-absolute top-0 start-0 m-2 px-3 py-2 shadow-sm">
+                      👁️ 10 rb
+                    </span>
+                  </div>
 
-                        {{-- Looping Kejuaraan --}}
-                        @foreach ($datas as $index => $data)
-                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" data-bs-interval="3000">
-                                <div class="card shadow border-0 rounded-4 text-center mx-auto card-fixed">
-                                    <!-- Gambar -->
-                                    <img src="{{ asset('storage/' . $data->image) }}" 
-                                        class="card-img-top rounded-top-4 mx-auto d-block mt-3"
-                                        alt="Prestasi {{ $index+1 }}" 
-                                        style="max-width: 220px; height:auto;">
-
-                                    <!-- Body -->
-                                    <div class="card-body">
-                                        <h5 class="fw-bold">{{ $data->juara }}</h5>
-                                        <p class="text-muted">{{ $data->deskripsi }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        {{-- End Looping --}}
-                    </div>
-
-                    <!-- Control Button -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
+                  <!-- Body -->
+                  <div class="card-body text-center p-3">
+                    <h6 class="fw-bold mb-1">{{ $data->juara }}</h6>
+                    <p class="mb-0 text-muted small">{{ $data->deskripsi }}</p>
+                  </div>
                 </div>
-            </div>
+              </div>
+            @endforeach
+
+          </div>
+
+          <!-- Tombol navigasi -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2 shadow"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-2 shadow"></span>
+          </button>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- CSS -->
+<!-- CSS tambahan -->
 <style>
-    /* Fix tinggi card biar semua konsisten */
-    .card-fixed {
-        min-height: 430px;   /* bisa kamu sesuaikan */
-        max-width: 500px;
-        width: 100%;
-    }
+  /* Ukuran card */
+  .carousel .card {
+    max-width: 380px;
+    margin: auto;
+  }
+
+  /* Badge warna marun */
+  .badge-maroon {
+    background-color: #800000 !important;
+    color: #fff !important;
+  }
+
+  /* Panah carousel tetap muncul */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 100% 100%;
+    filter: invert(1);
+  }
 </style>
 
 
+<!-- Ekstrakurikuler Section -->
+<section id="ekstrakurikuler" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Ekstrakurikuler</h2>
+    <div class="row align-items-center">
+      
+      <!-- Carousel Ekstra -->
+      <div class="col-md-6">
+        <div id="ekstraCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner text-center">
 
-
-
-    <!-- Ekstrakurikuler Section -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Ekstrakurikuler</h2>
-
-            <div class="row align-items-center">
-                <!-- Kolom kiri: Carousel -->
-                <div class="col-md-6 text-center" data-aos="fade-right">
-                    <div id="ekstraCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-
-                            <!-- Item 1 -->
-                            <div class="carousel-item active">
-                                <div class="card shadow-sm border-0 mx-auto"
-                                    style="width: 300px; height: 350px; border-radius: 15px;">
-                                    <div
-                                        class="card-body d-flex flex-column align-items-center justify-content-center h-100">
-                                        <img src="{{ asset('images/ekstra/osis.png') }}" alt="OSIS"
-                                            style="max-width:180px; max-height:200px; object-fit:contain;">
-                                        <h5 class="fw-semibold mt-3 text-center">OSIS SMK 17</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="carousel-item">
-                                <div class="card shadow-sm border-0 mx-auto"
-                                    style="width: 300px; height: 350px; border-radius: 15px;">
-                                    <div
-                                        class="card-body d-flex flex-column align-items-center justify-content-center h-100">
-                                        <img src="{{ asset('images/ekstra/Da.png') }}" alt="Pramuka"
-                                            style="max-width:180px; max-height:200px; object-fit:contain;">
-                                        <h5 class="fw-semibold mt-3 text-center">PRAMUKA</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- dst... -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kolom kanan: Ilustrasi tetap -->
-                <div class="col-md-6 text-center" data-aos="fade-left">
-                    <img src="{{ asset('images/ekstrakulikuler.png') }}" alt="Ilustrasi" style="max-width:350px;">
-                </div>
+            <!-- Item 1 -->
+            <div class="carousel-item active">
+              <img src="images/ekstra/osis.png" class="mb-3" alt="OSIS" style="max-height: 150px;">
+              <h4 class="fw-bold text-maroon">OSIS</h4>
+              <p>Organisasi Siswa Intra Sekolah</p>
             </div>
+
+            <!-- Item 2 -->
+            <div class="carousel-item">
+              <img src="images/ekstra/Da.png" class="mb-3" alt="Pramuka" style="max-height: 150px;">
+              <h4 class="fw-bold text-maroon">Pramuka</h4>
+              <p>Gerakan Pramuka Indonesia</p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="carousel-item">
+              <img src="images/ekstra/pmr.png" class="mb-3" alt="PMI" style="max-height: 150px;">
+              <h4 class="fw-bold text-maroon">PMI</h4>
+              <p>Palang Merah Remaja</p>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="carousel-item">
+              <img src="images/ekstra/ultras.jpg" class="mb-3" alt="Futsal" style="max-height: 150px;">
+              <h4 class="fw-bold text-maroon">Futsal</h4>
+              <p>Ekstra Futsal</p>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="carousel-item">
+              <img src="images/ekstra/english.png" class="mb-3" alt="English Club" style="max-height: 150px;">
+              <h4 class="fw-bold text-maroon">English Club</h4>
+              <p>Klub Bahasa Inggris</p>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="carousel-item">
+              <img src="images/ekstra/paskip.png" class="mb-3" alt="Paskibra" style="max-height: 150px;">
+              <h4 class="fw-bold text-maroon">Paskibra</h4>
+              <p>Pasukan Pengibar Bendera</p>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#ekstraCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#ekstraCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
         </div>
-    </section>
+      </div>
+
+      <!-- Ilustrasi -->
+      <div class="col-md-6 text-center">
+        <img src="images/ekstrakulikuler.png" class="img-fluid" alt="Ilustrasi Ekstrakurikuler" style="max-width: 500px">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
 
     <!-- Section Berita -->
@@ -246,29 +289,6 @@
                     </div>
                 </div>
                 @endforeach
-                {{-- looping berita --}}
-                {{-- <!-- Card 2 -->
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card shadow-sm h-100 border-0">
-                        <img src="{{ asset('images/berita2.jpg') }}" class="card-img-top" alt="Berita 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Judul Berita 2</h5>
-                            <p class="card-text">Deskripsi singkat berita kedua yang relevan dengan kegiatan sekolah.</p>
-                            <a href="#" class="btn btn-sm btn-maroon">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="card shadow-sm h-100 border-0">
-                        <img src="{{ asset('images/berita3.jpg') }}" class="card-img-top" alt="Berita 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Judul Berita 3</h5>
-                            <p class="card-text">Deskripsi singkat berita ketiga tentang prestasi atau event sekolah.</p>
-                            <a href="#" class="btn btn-sm btn-maroon">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
