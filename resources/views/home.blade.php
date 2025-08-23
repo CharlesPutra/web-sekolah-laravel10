@@ -107,46 +107,72 @@
     </style>
 
 
-    <!-- Section Prestasi -->
-    <section class="py-5 position-relative" style="background-color:#f8f9fa;">
-        <!-- Overlay gelap tipis -->
-        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.05);"></div>
+  <!-- Section Prestasi -->
+<section class="py-5 position-relative" style="background-color:#f8f9fa;">
+    <!-- Overlay gelap tipis -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.05);"></div>
 
-        <div class="container position-relative">
-            <h1 class="text-center fw-bold mb-5" data-aos="fade-up">Kejuaraan</h1>
-            <div class="row align-items-center">
+    <div class="container position-relative">
+        <h1 class="text-center fw-bold mb-5" data-aos="fade-up">Kejuaraan</h1>
+        <div class="row align-items-center">
 
-                <!-- Kolom Kiri: Gambar -->
-                <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right">
-                    <img src="{{ asset('images/kejuaraan.png') }}" alt="Ilustrasi Olahraga" class="img-fluid"
-                        style="max-width: 300px;">
-                </div>
+            <!-- Kolom Kiri: Gambar -->
+            <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right">
+                <img src="{{ asset('images/kejuaraan.png') }}" alt="Ilustrasi Olahraga" class="img-fluid"
+                    style="max-width: 300px;">
+            </div>
 
-                <!-- Kolom Kanan: Carousel -->
-                <div class="col-md-6" data-aos="fade-left">
-                    <div id="prestasiCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
+            <!-- Kolom Kanan: Carousel -->
+            <div class="col-md-6" data-aos="fade-left">
+                <div id="prestasiCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
 
-                            {{-- looping kejuaraan --}}
-                            @foreach ($datas as $data)
-                                <div class="carousel-item active" data-bs-interval="2000">
-                                    <div class="card shadow border-0 rounded-4">
-                                        <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top rounded-top-4"
-                                            alt="Prestasi 1" style="max-width: 200px; margin:auto;">
-                                        <div class="card-body">
-                                            <h5 class="fw-bold">{{ $data->juara }}</h5>
-                                            <p class="text-muted">{{ $data->deskripsi }}</p>
-                                        </div>
+                        {{-- Looping Kejuaraan --}}
+                        @foreach ($datas as $index => $data)
+                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" data-bs-interval="3000">
+                                <div class="card shadow border-0 rounded-4 text-center mx-auto card-fixed">
+                                    <!-- Gambar -->
+                                    <img src="{{ asset('storage/' . $data->image) }}" 
+                                        class="card-img-top rounded-top-4 mx-auto d-block mt-3"
+                                        alt="Prestasi {{ $index+1 }}" 
+                                        style="max-width: 220px; height:auto;">
+
+                                    <!-- Body -->
+                                    <div class="card-body">
+                                        <h5 class="fw-bold">{{ $data->juara }}</h5>
+                                        <p class="text-muted">{{ $data->deskripsi }}</p>
                                     </div>
                                 </div>
-                            @endforeach
-                            {{-- looping kejuaraan --}}
-                        </div>
+                            </div>
+                        @endforeach
+                        {{-- End Looping --}}
                     </div>
+
+                    <!-- Control Button -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#prestasiCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- CSS -->
+<style>
+    /* Fix tinggi card biar semua konsisten */
+    .card-fixed {
+        min-height: 430px;   /* bisa kamu sesuaikan */
+        max-width: 500px;
+        width: 100%;
+    }
+</style>
+
+
+
 
 
     <!-- Ekstrakurikuler Section -->
@@ -269,15 +295,14 @@
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
                     <h5 class="fw-bold">Alamat</h5>
-                    <p>Jln Cincin Kota No. 8, Muncar, Banyuwangi 68472</p>
-                    <p><i class="bi bi-telephone"></i> 0333-123456</p>
+                    <p>Dusun Krajan, Blambangan, Kec. Muncar, Kabupaten Banyuwangi, Jawa Timur 68472</p>
+                    <p><i class="bi bi-telephone"></i> +62822-3100-1316</p>
                     <p><i class="bi bi-envelope"></i> smk17muncar@gmail.com</p>
                 </div>
             </div>
         </div>
     </section> <br>
 
-    <p>tes</p>
 @endsection
 
 <!-- Panggil CSS & JS -->

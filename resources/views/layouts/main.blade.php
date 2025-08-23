@@ -85,16 +85,26 @@
         /* Tombol login */
         .login-btn {
             background-color: #800000;
-            color: #fff;
+            color: #fff !important;
             border: none;
             border-radius: 8px;
             padding: 6px 15px;
             transition: transform 0.3s ease, background-color 0.3s ease;
+            display: inline-block;
         }
 
         .login-btn:hover {
             background-color: #a52a2a;
             transform: scale(1.08);
+        }
+
+        /* Tombol login di HP (biar full lebar) */
+        @media (max-width: 991.98px) {
+            .login-btn {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -152,11 +162,17 @@
                             <i class="bi bi-journal-text me-1"></i> Postingan
                         </a>
                     </li>
+
+                    <!-- Login (Muncul di HP) -->
+                    <li class="nav-item d-lg-none">
+                        <a href="{{ route('ShowLogin') }}" class="login-btn">Login</a>
+                    </li>
                 </ul>
             </div>
 
-            <!-- Login Button tetap terpisah -->
-            <a href="{{ route('ShowLogin') }}" class="login-btn" style="text-decoration: none">Login</a>
+            <!-- Login (Muncul di Desktop) -->
+            <a href="{{ route('ShowLogin') }}" class="login-btn d-none d-lg-block"
+                style="text-decoration: none">Login</a>
         </div>
     </nav>
 
@@ -166,53 +182,91 @@
     </main>
 
     <!-- Footer -->
-    <footer style="background-color:#800000; color:#fff; padding: 40px 0; font-family: Arial, sans-serif;">
-        <div class="container">
-            <div class="row">
+<footer style="background-color:#800000; color:#fff; padding: 40px 0; font-family: Arial, sans-serif;">
+    <div class="container">
+        <div class="row">
 
-                <!-- Logo & Deskripsi -->
-                <div class="col-md-3 mb-3">
-                    <h5><strong>SMK 17 Agustus 1945 Muncar</strong></h5>
-                    <p>Pendidikan berkualitas untuk generasi bangsa yang unggul.</p>
-                </div>
-
-                <!-- Menu -->
-                <div class="col-md-3 mb-3">
-                    <h6 class="fw-bold">Menu</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Beranda</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Profil</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Jurusan</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Kontak</a></li>
-                    </ul>
-                </div>
-
-                <!-- Kontak -->
-                <div class="col-md-3 mb-3">
-                    <h6 class="fw-bold">Kontak</h6>
-                    <p><i class="bi bi-geo-alt-fill"></i> Muncar, Banyuwangi</p>
-                    <p><i class="bi bi-envelope-fill"></i> info@smk17agustus1945.sch.id</p>
-                    <p><i class="bi bi-telephone-fill"></i> +62 812-3456-7890</p>
-                </div>
-
-                <!-- Sosial Media -->
-                <div class="col-md-3 mb-3">
-                    <h6 class="fw-bold">Ikuti Kami</h6>
-                    <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-tiktok fs-4"></i></a>
-                    <a href="#" class="text-white"><i class="bi bi-whatsapp fs-4"></i></a>
-                </div>
+            <!-- Logo & Deskripsi -->
+            <div class="col-md-3 mb-3">
+                <h5><strong>SMK 17 Agustus 1945 Muncar</strong></h5>
+                <p>Pendidikan berkualitas untuk generasi bangsa yang unggul.</p>
             </div>
 
-            <hr style="border-color: rgba(255,255,255,0.3);">
-
-            <div class="text-center">
-                <p class="mb-0">© 2025 SMK 17 Agustus 1945 Muncar. All Rights Reserved.</p>
+            <!-- Menu -->
+            <div class="col-md-3 mb-3">
+                <h6 class="fw-bold">Menu</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">Beranda</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Profil</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Jurusan</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Kontak</a></li>
+                </ul>
             </div>
+
+            <!-- Kontak -->
+            <div class="col-md-3 mb-3">
+                <h6 class="fw-bold">Kontak</h6>
+                <p><i class="bi bi-geo-alt-fill"></i> Muncar, Banyuwangi</p>
+                <p><i class="bi bi-envelope-fill"></i> info@smk17agustus1945.sch.id</p>
+                <p><i class="bi bi-telephone-fill"></i> +62 812-3456-7890</p>
+            </div>
+
+            <!-- Sosial Media -->
+<div class="col-md-3 mb-3">
+    <h6 class="fw-bold">Ikuti Kami</h6>
+    <a href="https://www.instagram.com/smk17_muncar" target="_blank" class="social-icon instagram me-3" style="text-decoration: none">
+        <i class="bi bi-instagram fs-4"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100067135681220&sk=about" target="_blank" class="social-icon facebook me-3" style="text-decoration: none">
+        <i class="bi bi-facebook fs-4"></i>
+    </a>
+    <a href="https://www.tiktok.com/@smk17muncar?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon tiktok me-3" style="text-decoration: none">
+        <i class="bi bi-tiktok fs-4"></i>
+    </a>
+    <a href="https://wa.me/6281234567890" target="_blank" class="social-icon whatsapp" style="text-decoration: none">
+        <i class="bi bi-whatsapp fs-4"></i>
+    </a>
+</div>
+
+
+        <!-- Garis Footer -->
+        <hr style="border: 3px solid rgba(255,255,255,0.7); border-radius: 5px;">
+
+        <div class="text-center">
+            <p class="mb-0">© 2025 SMK 17 Agustus 1945 Muncar. All Rights Reserved.</p>
         </div>
-    </footer>
-    <!-- End Footer -->
+    </div>
+</footer>
+<!-- End Footer -->
+
+<style>
+    /* Sosial Media Hover */
+    .social-icon {
+        color: #fff;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2);
+    }
+
+    .social-icon.instagram:hover {
+        color: #E1306C; /* Instagram pink */
+    }
+
+    .social-icon.facebook:hover {
+        color: #1877F2; /* Facebook blue */
+    }
+
+    .social-icon.tiktok:hover {
+        color: #69C9D0; /* TikTok cyan */
+    }
+
+    .social-icon.whatsapp:hover {
+        color: #25D366; /* WhatsApp green */
+    }
+</style>
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

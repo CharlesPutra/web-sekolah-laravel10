@@ -37,7 +37,7 @@
             <!-- Pagination -->
             <div class="d-flex justify-content-center mt-5">
                 <nav>
-                    <ul class="pagination pagination-lg">
+                    <ul class="pagination pagination-sm">
                         {{-- Tombol Previous --}}
                         <li class="page-item {{ $datas->onFirstPage() ? 'disabled' : '' }}">
                             <a class="page-link text-maroon" href="{{ $datas->previousPageUrl() ?? '#' }}">&laquo;</a>

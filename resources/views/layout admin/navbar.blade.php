@@ -4,70 +4,70 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Savory Spoon</title>
+    <title>navbar admin</title>
     <link rel="web icon" href="{{ asset('logo.jpg') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
+        /* Navbar utama */
         .navbar {
-            background-color: hsl(10, 56%, 51%) !important;
-            color: #fff !important;
+            background-color: #800000 !important; /* Merah marun */
         }
 
         .navbar a,
         .navbar-brand,
         .navbar-nav .nav-link {
-            color: #fff !important;
+            color: #ffffff !important; /* Putih */
         }
 
         .navbar a:hover,
         .navbar-nav .nav-link:hover {
-            color: #ffd8c2 !important;
+            color: #ffdada !important; /* Putih lembut saat hover */
         }
 
+        /* Dropdown */
         .dropdown-menu {
-            background-color: hsl(10, 56%, 51%) !important;
-            color: #fff !important;
+            background-color: #800000 !important; /* Merah marun */
             border: none;
-            --bs-dropdown-bg: hsl(10, 56%, 51%) !important;
-            --bs-dropdown-link-color: #fff !important;
-            --bs-dropdown-link-hover-bg: #ff7a5c !important;
-            --bs-dropdown-link-hover-color: #fff !important;
-            backdrop-filter: none !important;
+            --bs-dropdown-bg: #800000 !important;
+            --bs-dropdown-link-color: #ffffff !important;
+            --bs-dropdown-link-hover-bg: #600000 !important;
+            --bs-dropdown-link-hover-color: #ffffff !important;
         }
 
         .dropdown-item {
-            color: #fff !important;
+            color: #ffffff !important;
         }
 
         .dropdown-item:hover,
         .dropdown-item:focus {
-            background-color: #ff7a5c !important;
-            color: #fff !important;
+            background-color: #600000 !important; /* Lebih gelap saat hover */
+            color: #ffffff !important;
         }
-          /* Samakan lebar dropdown dengan tombol pemicunya */
-    .navbar .dropdown-menu {
-        min-width: 100% !important;
-    }
 
-    /* Pastikan tombol dropdown tidak punya padding aneh */
-    .navbar .dropdown-toggle {
-        padding-right: 1rem;
-        padding-left: 1rem;
-    }
+        /* Samakan lebar dropdown dengan tombol */
+        .navbar .dropdown-menu {
+            min-width: 100% !important;
+        }
 
-    /* Atur lebar tombol user agar konsisten */
-    .navbar .nav-item.dropdown {
-        position: relative;
-        width: auto; /* atau gunakan fixed width jika ingin konsisten */
-    }
+        /* Tombol dropdown */
+        .navbar .dropdown-toggle {
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
 
-    /* Optional: buat item dalam dropdown mengisi penuh */
-    .navbar .dropdown-menu .dropdown-item {
-        width: 100%;
-        box-sizing: border-box;
-    }
+        /* Posisi dropdown agar rapi */
+        .navbar .nav-item.dropdown {
+            position: relative;
+            width: auto;
+        }
+
+        /* Item dalam dropdown full */
+        .navbar .dropdown-menu .dropdown-item {
+            width: 100%;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
@@ -86,9 +86,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto gap-3">
-                    {{-- <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('home') }}"><i class="bi bi-house"></i> Home</a>
-                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('prestasi.index') }}"><i class="bi bi-list-ul"></i> Prestasi</a>
                     </li>
@@ -98,7 +95,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('keterampilan.index') }}"><i class="bi bi-people"></i> Jurusan</a>
                     </li>
-                   
+
                     @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -109,7 +106,7 @@
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="dropdown-item text-white">
+                                        <button type="submit" class="dropdown-item">
                                             <i class="bi bi-box-arrow-right"></i> Logout
                                         </button>
                                     </form>
@@ -118,7 +115,6 @@
                         </li>
                     @endauth
 
-                    {{-- Guest (not logged in) --}}
                     {{-- @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">

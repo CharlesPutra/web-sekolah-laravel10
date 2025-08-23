@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Savory Spoon</title>
+    <title>Login Admin</title>
     <link rel="icon" href="{{ asset('logo.jpg') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(rgba(255, 248, 240, 0.9), rgba(255, 248, 240, 0.9));
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             height: 100vh;
             display: flex;
@@ -23,7 +23,7 @@
             border-radius: 1rem;
             width: 100%;
             max-width: 420px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(128, 0, 0, 0.3);
             text-align: center;
         }
 
@@ -31,23 +31,33 @@
             width: 100px;
             height: 100px;
             object-fit: cover;
-            /* border-radius: 50%; */
             margin-bottom: 1.5rem;
-            /* border: 3px solid #c8553d; */
         }
 
         .login-card h2 {
             font-weight: 700;
-            color: #a3452f;
+            color: #800000; /* Merah marun */
             margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #800000;
         }
 
         .form-control {
             border-radius: 0.5rem;
+            border: 1px solid #800000;
+        }
+
+        .form-control:focus {
+            border-color: #800000;
+            box-shadow: 0 0 5px rgba(128, 0, 0, 0.5);
         }
 
         .btn-login {
-            background-color: #c8553d;
+            background-color: #800000;
+            color: #fff;
             border: none;
             border-radius: 0.5rem;
             font-weight: 600;
@@ -55,11 +65,11 @@
         }
 
         .btn-login:hover {
-            background-color: #a3452f;
+            background-color: #600000;
         }
 
         .text-muted a {
-            color: #c8553d;
+            color: #800000;
             text-decoration: none;
         }
 
@@ -87,11 +97,12 @@
             </div>
         @endif
 
+        <h2>Login</h2>
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="mb-3 text-start">
                 <label for="name" class="form-label">Username</label>
-                <input type="name" class="form-control" id="name" name="name" placeholder="Savory Spoon"
+                <input type="text" class="form-control" id="name" name="name" placeholder="Savory Spoon"
                     required autofocus>
             </div>
 
