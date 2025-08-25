@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jurusan;
+use App\Models\KepalaSekolah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class JurusanController extends Controller
+class KepalaSekolahController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $datas = Jurusan::paginate(6);
-        return view('jurusan_admin.index', compact('datas'));
+        $datas = KepalaSekolah::paginate(6);
+        return view('kepalasekolah_admin.index',compact('datas'));
     }
 
     /**
@@ -22,7 +22,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view('jurusan_admin.create');
+        return view('kepalasekolah_admin.ceate');
     }
 
     /**
@@ -30,10 +30,10 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+         $request->validate([
             'image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
-            'nama_jurusan' => 'required',
-            'deskripsi' => 'required',
+            'nama' => 'required',
+            'ucapan' => 'required'
         ]);
 
         $imagePath = null;
@@ -41,12 +41,12 @@ class JurusanController extends Controller
             $imagePath = $request->file('image')->store('image', 'public');
         }
 
-        Jurusan::create([
+       KepalaSekolah::create([
             'image' => $imagePath,
-            'nama_jurusan' => $request->nama_jurusan,
-            'deskripsi' => $request->deskripsi,
+            'nama' => $request->nama,
+            'ucapan' => $request->ucapan,
         ]);
-        return redirect()->route('keterampilan.index')->with('success',     );
+        return redirect()->route('kepalasekolah.index')->with('success', 'Data jurusan berhasil di tambahkan');
     }
 
     /**
@@ -62,8 +62,8 @@ class JurusanController extends Controller
      */
     public function edit(string $id)
     {
-        $edit = Jurusan::findOrFail($id);
-        return view('jurusan_admin.edit', compact('edit'));
+        $edit = KepalaSekolah::findOrFail($id);
+        return view('kepalasekolah_admin.edit',compact('edit'));
     }
 
     /**
@@ -71,29 +71,29 @@ class JurusanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'image' => 'nullable|image|mimes:png,jpg,png|max:2048',
-            'nama_jurusan' => 'required',
-            'deskripsi' => 'required',
+         $request->validate([
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            'name' => 'required',
+            'nama_panjang' => 'required',
         ]);
 
-        $jurusan = Jurusan::findOrFail($id);
+      $kepalasekolah = KepalaSekolah::findOrFail($id);
 
-        if ($jurusan->image && Storage::disk('public')->exists($jurusan->image)) {
-            Storage::disk('public')->delete($jurusan->image);
+        if ($kepalasekolah->image && Storage::disk('public')->exists($kepalasekolah->image)) {
+            Storage::disk('public')->delete($kepalasekolah->image);
         }
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('image', 'public');
-            $jurusan->image = $imagePath;
+           $kepalasekolah->image = $imagePath;
         }
 
-        $jurusan->update([
-            'nama_jurusan' => $request->nama_jurusan,
-            'deskripsi' => $request->deskripsi,
+       $kepalasekolah->update([
+            'name' => $request->name,
+            'nama_panjang' => $request->nama_panjang,
         ]);
 
-        return redirect()->route('keterampilan.index')->with('warning', 'Data jurusan berhasil di ubah');
+        return redirect()->route('kepalasekolah.index')->with('warning', 'Data jurusan berhasil di ubah');
     }
 
     /**
@@ -101,7 +101,7 @@ class JurusanController extends Controller
      */
     public function destroy(string $id)
     {
-        $hapus = Jurusan::findOrFail($id);
+          $hapus =KepalaSekolah::findOrFail($id);
 
         if ($hapus->image && Storage::disk('public')->exists($hapus->image)) {
             Storage::disk('public')->delete($hapus->image);
@@ -109,6 +109,6 @@ class JurusanController extends Controller
 
         $hapus->delete();
 
-        return redirect()->route('keterampilan.index')->with('danger', 'Data prestasi berhasil di hapus');
+        return redirect()->route('kepalasekolah.index')->with('danger', 'Data prestasi berhasil di hapus');
     }
 }

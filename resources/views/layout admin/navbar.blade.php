@@ -95,6 +95,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('keterampilan.index') }}"><i class="bi bi-people"></i> Jurusan</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('ekstrakulikuler.index') }}"><i class="bi bi-people"></i> Ekstrakulikuler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('visimisi.index') }}"><i class="bi bi-people"></i> Visi Misi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('tentangsekolah.index') }}"><i class="bi bi-people"></i> Tentang Sekolah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('kepalasekolah.index') }}"><i class="bi bi-people"></i> Kepala Sekolah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('infrastruktur.index') }}"><i class="bi bi-people"></i> Infrastruktur</a>
+                    </li>
 
                     @auth
                         <li class="nav-item dropdown">
