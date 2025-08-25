@@ -1,208 +1,45 @@
-/* HERO SECTION */
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    overflow: hidden;
-}
-
-/* Overlay gelap */
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.55);
-    z-index: 1;
-}
-
-/* Konten hero */
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Judul */
-.hero h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    animation: fadeInDown 1.2s ease;
-}
-
-/* Sub judul */
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    animation: fadeInUp 1.5s ease;
-}
-
-/* Tombol */
-.hero .btn {
-    font-size: 1.1rem;
-    padding: 12px 28px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.hero .btn-primary {
-    background: #800000; /* maroon */
-    border: none;
-}
-
-.hero .btn-primary:hover {
-    background: #a00000;
-    box-shadow: 0 0 15px rgba(160, 0, 0, 0.7);
-}
-
-.hero .btn-outline-light:hover {
-    background: #fff;
-    color: #800000;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-}
-
-.hero-divider {
-    width: 100%;
-    height: 6px;
-    background-color: #800000; /* warna garis */
-}
-
-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-h2 {
-    color: #222;
-}
-
-.carousel .card {
-    transition: transform 0.3s ease;
-}
-.carousel .card:hover {
-    transform: translateY(-5px);
-}
-
-img.img-bendera.img-fluid {
-    max-width: 39px;
-    width: auto;
-}
-
-.menu-card {
-  background: #fff;
-  width: 180px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.05);
-}
-
-.menu-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  cursor: pointer;
-}
-
-.menu-card {
-  background: #680f0f;
-  width: 180px;
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.menu-card:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-}
-
-.menu-card:active {
-  transform: scale(0.95);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-}
-
-.menu-card-link {
-  color: inherit;
-}
-.menu-card-link:hover {
-  color: inherit;
-}
-
-/* Ekstrakurikuler */
-#ekstraCarousel img {
-    object-fit: contain;
-}
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-size: 100% 100%;
-}
-
-.btn-maroon {
-  background-color: #800000;
-  color: #fff;
-  border-radius: 8px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-.btn-maroon:hover {
-  background-color: #a52a2a;
-  transform: scale(1.05);
-}
-
-/* Biar wave nggak numpuk di atas section berikutnya */
-.wave-bottom {
-  display: block;
+/* ======== FIX SCROLL HORIZONTAL GLOBAL ======== */
+html, body {
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* Bootstrap Row: hilangkan margin negatif */
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Semua container jangan lebih dari layar */
+.container, .row, section {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Gambar, video, iframe */
+img, video, iframe {
+  max-width: 100% !important;
   height: auto;
-  margin-bottom: -1px; /* hilangkan celah putih */
-  line-height: 0;
-  position: relative;
-  z-index: 0;
+  display: block;
 }
 
-/* Tarik section Lokasi naik, tapi tetap beri ruang atas */
-#lokasi {
-  position: relative;
-  z-index: 1;
-  margin-top: -60px;   /* geser naik */
-  padding-top: 90px;   /* ruang aman agar judul nggak ketutup */
+/* SVG wave biar gak bikin overflow */
+svg, .wave-bottom {
+  width: 100% !important;
+  height: auto;
+  display: block;
+  overflow: hidden;
 }
 
-/* Opsional: sedikit beda untuk layar besar */
-@media (min-width: 992px) {
-  #lokasi {
-    margin-top: -90px;
-    padding-top: 120px;
-  }
+/* Carousel: pastikan item pas di layar */
+.carousel-inner {
+  max-width: 100% !important;
+  overflow: hidden;
 }
-
-
-
-/* Animasi */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.carousel-item img {
+  width: 100% !important;
+  max-width: 100vw !important;
+  height: auto;
+  object-fit: cover;
 }
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-  

@@ -181,7 +181,7 @@
         @yield('content')
     </main>
 
-    <!-- Footer -->
+   <!-- Footer -->
 <footer style="background-color:#800000; color:#fff; padding: 40px 0; font-family: Arial, sans-serif;">
     <div class="container">
         <div class="row">
@@ -189,13 +189,13 @@
             <!-- Logo & Deskripsi -->
             <div class="col-md-3 mb-3">
                 <h5><strong>SMK 17 Agustus 1945 Muncar</strong></h5>
-                <p>Pendidikan berkualitas untuk generasi bangsa yang unggul.</p>
+                <p class="text-justify">Pendidikan berkualitas untuk generasi bangsa yang unggul.</p>
             </div>
 
             <!-- Menu -->
             <div class="col-md-3 mb-3">
                 <h6 class="fw-bold">Menu</h6>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled text-justify">
                     <li><a href="#" class="text-white text-decoration-none">Beranda</a></li>
                     <li><a href="#" class="text-white text-decoration-none">Profil</a></li>
                     <li><a href="#" class="text-white text-decoration-none">Jurusan</a></li>
@@ -206,28 +206,32 @@
             <!-- Kontak -->
             <div class="col-md-3 mb-3">
                 <h6 class="fw-bold">Kontak</h6>
-                <p><i class="bi bi-geo-alt-fill"></i> Muncar, Banyuwangi</p>
-                <p><i class="bi bi-envelope-fill"></i> info@smk17agustus1945.sch.id</p>
-                <p><i class="bi bi-telephone-fill"></i> +62 812-3456-7890</p>
+                <p class="text-justify"><i class="bi bi-geo-alt-fill"></i> Muncar, Banyuwangi</p>
+                <p class="text-justify"><i class="bi bi-envelope-fill"></i> info@smk17agustus1945.sch.id</p>
+                <p class="text-justify"><i class="bi bi-telephone-fill"></i> +62 812-3456-7890</p>
             </div>
 
             <!-- Sosial Media -->
-<div class="col-md-3 mb-3">
-    <h6 class="fw-bold">Ikuti Kami</h6>
-    <a href="https://www.instagram.com/smk17_muncar" target="_blank" class="social-icon instagram me-3" style="text-decoration: none">
-        <i class="bi bi-instagram fs-4"></i>
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=100067135681220&sk=about" target="_blank" class="social-icon facebook me-3" style="text-decoration: none">
-        <i class="bi bi-facebook fs-4"></i>
-    </a>
-    <a href="https://www.tiktok.com/@smk17muncar?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon tiktok me-3" style="text-decoration: none">
-        <i class="bi bi-tiktok fs-4"></i>
-    </a>
-    <a href="https://wa.me/6281234567890" target="_blank" class="social-icon whatsapp" style="text-decoration: none">
-        <i class="bi bi-whatsapp fs-4"></i>
-    </a>
-</div>
+            <div class="col-md-3 mb-3">
+                <h6 class="fw-bold">Ikuti Kami</h6>
+                <a href="https://www.instagram.com/smk17_muncar" target="_blank" class="social-icon instagram me-3" style="text-decoration: none">
+                    <i class="bi bi-instagram fs-4"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100067135681220&sk=about" target="_blank" class="social-icon facebook me-3" style="text-decoration: none">
+                    <i class="bi bi-facebook fs-4"></i>
+                </a>
+                <a href="https://www.tiktok.com/@smk17muncar?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon tiktok me-3" style="text-decoration: none">
+                    <i class="bi bi-tiktok fs-4"></i>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="social-icon whatsapp me-3" style="text-decoration: none">
+                    <i class="bi bi-whatsapp fs-4"></i>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" class="social-icon youtube" style="text-decoration: none">
+                    <i class="bi bi-youtube fs-4"></i>
+                </a>
+            </div>
 
+        </div>
 
         <!-- Garis Footer -->
         <hr style="border: 3px solid rgba(255,255,255,0.7); border-radius: 5px;">
@@ -240,6 +244,11 @@
 <!-- End Footer -->
 
 <style>
+    /* Ratakan teks kanan-kiri */
+    .text-justify {
+        text-align: justify;
+    }
+
     /* Sosial Media Hover */
     .social-icon {
         color: #fff;
@@ -265,7 +274,12 @@
     .social-icon.whatsapp:hover {
         color: #25D366; /* WhatsApp green */
     }
+
+    .social-icon.youtube:hover {
+        color: #FF0000; /* YouTube red */
+    }
 </style>
+
 
 
     <!-- Bootstrap JS -->

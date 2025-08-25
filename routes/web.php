@@ -30,6 +30,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/', function () {
         return view('home'); // otomatis cari resources/views/home.blade.php
     })->name('home');
+
+//     Route::get('/postingan', function () {
+//     return view('postingan');
+// })->name('postingan');
+
     Route::get('/', [HomeController::class, 'kejuaraan'])->name('home');
     
     // web.php
