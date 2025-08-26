@@ -8,11 +8,11 @@
         <div class="row justify-content-center">
     <div class="col-md-4 mb-4">
         <div class="card shadow h-100 text-center">
-            <img src="{{ asset('images/default.png') }}" class="card-img-top" alt="Foto Kaprog">
+            <img src="{{ asset('storage/' . $show->foto) }}" class="card-img-top" alt="Foto Kaprog">
             <div class="card-body">
-                <h5 class="card-title">Nama Kepala Program</h5>
-                <p class="card-text">NIP: 123456789</p>
-                <p class="text-muted">Kontak: 0812-3456-7890</p>
+                <h5 class="card-title">{{ $show->nama_kaprog }}</h5>
+                <p class="card-text">{{ $show->nip }}</p>
+                <p class="text-muted">{{ $show->phone }}</p>
             </div>
         </div>
     </div>

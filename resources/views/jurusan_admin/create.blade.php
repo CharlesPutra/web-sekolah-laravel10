@@ -44,6 +44,49 @@
                                 @enderror
                             </div>
 
+                              {{-- Gambar --}}
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto Kaprog</label>
+                                <input type="file" name="foto" id="foto"
+                                    class="form-control @error('foto') is-invalid @enderror">
+                                @error('foto')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                              {{-- juara --}}
+                            <div class="mb-3">
+                                <label for="nama_kaprog" class="form-label">Nama Kaprog</label>
+                                <input type="text" name="nama_kaprog" id="nama_kaprog"
+                                    class="form-control @error('nama_kaprog') is-invalid @enderror"
+                                    value="{{ old('nama_kaprog') }}" placeholder="Masukkan nama_kaprog">
+                                @error('nama_kaprog')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                              {{-- juara --}}
+                            <div class="mb-3">
+                                <label for="nip" class="form-label">No NIP</label>
+                                <input type="number" name="nip" id="nip"
+                                    class="form-control @error('nip') is-invalid @enderror"
+                                    value="{{ old('nip') }}" placeholder="Masukkan nip">
+                                @error('nip')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                              {{-- juara --}}
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">No Phone</label>
+                                <input type="text" name="phone" id="phone"
+                                    class="form-control @error('phone') is-invalid @enderror"
+                                    value="{{ old('phone') }}" placeholder="Masukkan mulai dari +62 atau 0">
+                                @error('phone')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('prestasi.index') }}" class="btn btn-secondary">
                                     <i class="bi bi-arrow-left"></i> Kembali

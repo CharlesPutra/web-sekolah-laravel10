@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('nama_jurusan');
             $table->text('deskripsi');
+            $table->string('foto')->nullable();
+            $table->string('nama_kaprog');
+            $table->integer('nip');
+            $table->string('phone',20);
             $table->timestamps();
         });
     }
