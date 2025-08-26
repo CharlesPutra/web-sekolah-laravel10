@@ -36,11 +36,7 @@
                             <i class="bi bi-building-check display-4 text-danger"></i>
                         </div>
                         <p class="fs-5 text-muted">
-                            <strong>SMK 17 Agustus 1945 Muncar</strong> berdiri pada <b>1 Juli 1987</b>, berlokasi di
-                            <i>Jalan Raya Blambangan No.37, Muncar, Banyuwangi, Jawa Timur</i>. <br><br>
-                            Dengan akreditasi <b>B</b> dan sertifikasi <b>ISO 9001:2008</b>, sekolah ini berkomitmen
-                            mencetak siswa yang
-                            siap menghadapi dunia kerja dan menjadi generasi unggul.
+                           {{ $tentang->tentang_sekolah ?? 'tidak ada data' }}
                         </p>
                     </div>
                 </div>
@@ -53,7 +49,7 @@
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-md-4 text-center" data-aos="fade-right">
-                    <img src="{{ asset('images/kepalasekolah.jpg') }}" 
+                    <img src="{{ asset('storage/' . $kepala->image) }}" 
                         alt="Kepala Sekolah" 
                         class="rounded-circle shadow-lg" 
                         style="width: 250px; height: 250px; object-fit: cover;">
@@ -62,13 +58,9 @@
                     <div class="card border-0 shadow-lg rounded-4 p-4 h-100" style="background: #f8f9fa;">
                         <h3 class="fw-bold mb-3 text-dark">Sambutan Kepala Sekolah</h3>
                         <p class="fs-5 text-muted">
-                            Assalamu’alaikum Warahmatullahi Wabarakatuh, <br><br>
-                            Selamat datang di website resmi <b>SMK 17 Agustus 1945 Muncar</b>.
-                            Kami berkomitmen untuk mencetak generasi muda yang <i>mandiri, terampil, dan siap kerja</i>.
-                            Melalui pendidikan yang berkualitas, kami ingin membekali peserta didik dengan ilmu,
-                            keterampilan, serta karakter yang kuat agar mampu bersaing di dunia kerja maupun melanjutkan pendidikan ke jenjang yang lebih tinggi.
+                           {{ $kepala->ucapan ?? 'tidak ada data' }}
                         </p>
-                        <h5 class="fw-bold mt-3 text-danger">MUJI ASBIYAH, S.Pd.I.</h5>
+                        <h5 class="fw-bold mt-3 text-danger">{{ $kepala->nama ?? 'tidak ada data' }}</h5>
                         <p class="text-muted">Kepala Sekolah SMK 17 Agustus 1945 Muncar</p>
                     </div>
                 </div>
@@ -223,28 +215,28 @@
                     <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
                         <i class="bi bi-building display-5 text-primary mb-3"></i>
                         <h5 class="fw-bold">Luas Tanah</h5>
-                        <p class="text-muted">4.863 m²</p>
+                        <p class="text-muted">{{ $infra->luas_tanah ?? '0' }} m²</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
                         <i class="bi bi-door-open-fill display-5 text-success mb-3"></i>
                         <h5 class="fw-bold">Ruang Kelas</h5>
-                        <p class="text-muted">24 Ruang</p>
+                        <p class="text-muted">{{ $infra->ruang_kelas ?? '0' }} Ruang</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
                         <i class="bi bi-pc-display display-5 text-danger mb-3"></i>
                         <h5 class="fw-bold">Laboratorium Komputer</h5>
-                        <p class="text-muted">4 Ruang</p>
+                        <p class="text-muted">{{ $infra->lab_komputer ?? '0' }} Ruang</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="fasilitas-card p-4 shadow-sm rounded-4 h-100">
                         <i class="bi bi-journal-bookmark-fill display-5 text-warning mb-3"></i>
                         <h5 class="fw-bold">Perpustakaan</h5>
-                        <p class="text-muted">1 Ruang</p>
+                        <p class="text-muted">{{ $infra->perpustakaan ?? '0' }} Ruang</p>
                     </div>
                 </div>
             </div>

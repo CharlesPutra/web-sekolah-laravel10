@@ -11,6 +11,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangSekolahController;
+use App\Http\Controllers\VisidanMisiController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -36,9 +37,10 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'kejuaraan'])->name('home');
 
 // web.php
-Route::get('/visi-misi', function () {
-    return view('visiMisi');
-})->name('visiMisi');
+    // Route::get('/visi-misi', function () {
+    //     return view('visiMisi');
+    // })->name('visiMisi');
+Route::get('/visi-misi',[VisidanMisiController::class, 'VisiMisiuser'])->name('visiMisi');
 
 //route profil
 Route::get('/profil/{id}', [ProfileController::class, 'deskripsi'])->name('profil.show');

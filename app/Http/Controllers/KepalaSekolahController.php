@@ -73,8 +73,8 @@ class KepalaSekolahController extends Controller
     {
          $request->validate([
             'image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
-            'name' => 'required',
-            'nama_panjang' => 'required',
+            'nama' => 'required',
+            'ucapan' => 'required',
         ]);
 
       $kepalasekolah = KepalaSekolah::findOrFail($id);
@@ -89,8 +89,8 @@ class KepalaSekolahController extends Controller
         }
 
        $kepalasekolah->update([
-            'name' => $request->name,
-            'nama_panjang' => $request->nama_panjang,
+            'nama' => $request->nama,
+            'ucapan' => $request->ucapan,
         ]);
 
         return redirect()->route('kepalasekolah.index')->with('warning', 'Data jurusan berhasil di ubah');

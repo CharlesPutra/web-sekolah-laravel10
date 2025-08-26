@@ -29,8 +29,8 @@
                 <tr>
                     <th>No</th>
                     <th>Foto</th>
-                    <th>Nama Jurusan</th>
-                    <th>Deskripsi</th>
+                    <th>Nama Kepala Sekolah</th>
+                    <th>Ucapan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>

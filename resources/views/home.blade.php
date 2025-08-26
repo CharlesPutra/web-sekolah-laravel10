@@ -174,42 +174,16 @@
       <div class="col-md-6">
         <div id="ekstraCarousel" class="carousel slide" data-bs-ride="carousel" style="overflow:hidden;">
           <div class="carousel-inner text-center">
+
+            @foreach ($ekstra as $e)
+              
             <!-- Item 1 -->
             <div class="carousel-item active">
-              <img src="images/ekstra/osis.png" class="mb-3" alt="OSIS" style="max-height: 150px; max-width:100%;">
-              <h4 class="fw-bold text-maroon">OSIS</h4>
-              <p>Organisasi Siswa Intra Sekolah</p>
+              <img src="{{ asset('storage/' . $e->image) }}" class="mb-3" alt="{{ $e->name }}" style="max-height: 150px; max-width:100%;">
+              <h4 class="fw-bold text-maroon">{{ $e->name }}</h4>
+              <p>{{ $e->nama_panjang }}</p>
             </div>
-            <!-- Item 2 -->
-            <div class="carousel-item">
-              <img src="images/ekstra/Da.png" class="mb-3" alt="Pramuka" style="max-height: 150px; max-width:100%;">
-              <h4 class="fw-bold text-maroon">Pramuka</h4>
-              <p>Gerakan Pramuka Indonesia</p>
-            </div>
-            <!-- Item 3 -->
-            <div class="carousel-item">
-              <img src="images/ekstra/pmr.png" class="mb-3" alt="PMI" style="max-height: 150px; max-width:100%;">
-              <h4 class="fw-bold text-maroon">PMI</h4>
-              <p>Palang Merah Remaja</p>
-            </div>
-            <!-- Item 4 -->
-            <div class="carousel-item">
-              <img src="images/ekstra/ultras.jpg" class="mb-3" alt="Futsal" style="max-height: 150px; max-width:100%;">
-              <h4 class="fw-bold text-maroon">Futsal</h4>
-              <p>Ekstra Futsal</p>
-            </div>
-            <!-- Item 5 -->
-            <div class="carousel-item">
-              <img src="images/ekstra/english.png" class="mb-3" alt="English Club" style="max-height: 150px; max-width:100%;">
-              <h4 class="fw-bold text-maroon">English Club</h4>
-              <p>Klub Bahasa Inggris</p>
-            </div>
-            <!-- Item 6 -->
-            <div class="carousel-item">
-              <img src="images/ekstra/paskip.png" class="mb-3" alt="Paskibra" style="max-height: 150px; max-width:100%;">
-              <h4 class="fw-bold text-maroon">Paskibra</h4>
-              <p>Pasukan Pengibar Bendera</p>
-            </div>
+            @endforeach
           </div>
 
           <!-- Controls -->

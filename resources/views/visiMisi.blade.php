@@ -13,7 +13,7 @@
         <div class="card-visi animate">
           <h4>Visi</h4>
           <p>
-            "Menjadi sekolah yang unggul dalam prestasi, berkarakter, berwawasan lingkungan, serta mampu bersaing di era global."
+           "{{ $visi->visi ?? 'tidak ada data'}}"
           </p>
         </div>
       </div>
@@ -22,16 +22,10 @@
       <div class="col-lg-4 col-md-6">
         <div class="card-visi animate">
           <h4>Misi</h4>
-          <ol>
-            <li>Meningkatkan keimanan dan ketakwaan warga sekolah.</li>
-            <li>Melaksanakan penguatan karakter dan akhlak mulia.</li>
-            <li>Mengembangkan sikap cinta tanah air.</li>
-            <li>Melaksanakan pembelajaran yang efektif, kreatif, inovatif, dan menyenangkan.</li>
-            <li>Meningkatkan pemahaman dan penerapan ilmu pengetahuan dan teknologi.</li>
-            <li>Memberikan bekal keterampilan bernalar kritis dan literasi.</li>
-            <li>Mengembangkan kreativitas dan inovasi.</li>
-            <li>Menumbuhkan karakter empati dan gotong royong.</li>
-          </ol>
+          {{-- <ol>
+            <li>{{ $visi->misi }}</li>
+          </ol> --}}
+          <p>{{ $visi->misi ?? 'tidak ada data' }}</p>
         </div>
       </div>
 
@@ -39,15 +33,10 @@
       <div class="col-lg-4 col-md-12">
         <div class="card-visi animate">
           <h4>Tujuan</h4>
-          <ol>
-            <li>Mewujudkan peserta didik yang unggul, beriman, dan bertakwa.</li>
-            <li>Merealisasikan pembelajaran bermutu dengan pemanfaatan teknologi informasi.</li>
-            <li>Mewujudkan peserta didik yang kritis, kreatif, adaptif, dan mampu berkolaborasi.</li>
-            <li>Menanamkan nilai-nilai karakter dan akhlak mulia.</li>
-            <li>Mengembangkan potensi diri sesuai bakat dan minat peserta didik.</li>
-            <li>Mewujudkan tata kelola manajemen sekolah yang profesional.</li>
-            <li>Memberikan pelayanan pendidikan yang bermutu sesuai standar nasional.</li>
-          </ol>
+          {{-- <ol>
+            <li>{{ $visi->tujuan }}</li>
+          </ol> --}}
+          <p>{{ $visi->tujuan ?? 'tidak ada data' }}</p>
         </div>
       </div>
     </div>
