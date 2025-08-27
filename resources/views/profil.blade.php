@@ -36,7 +36,7 @@
                             <i class="bi bi-building-check display-4 text-danger"></i>
                         </div>
                         <p class="fs-5 text-muted">
-                           {{ $tentang->tentang_sekolah ?? 'tidak ada data' }}
+                            {{ $tentang->tentang_sekolah ?? 'tidak ada data' }}
                         </p>
                     </div>
                 </div>
@@ -49,16 +49,19 @@
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-md-4 text-center" data-aos="fade-right">
-                    <img src="{{ asset('storage/' . $kepala->image) }}" 
-                        alt="Kepala Sekolah" 
-                        class="rounded-circle shadow-lg" 
-                        style="width: 250px; height: 250px; object-fit: cover;">
+                    @if ($kepala && $kepala->image)
+                        <img src="{{ asset('storage/' . $kepala->image) }}" alt="Kepala Sekolah"
+                            class="rounded-circle shadow-lg" style="width: 250px; height: 250px; object-fit: cover;">
+                    @else
+                        <p>Data Kepala Sekolah belum tersedia.</p>
+                    @endif
+
                 </div>
                 <div class="col-md-8" data-aos="fade-left">
                     <div class="card border-0 shadow-lg rounded-4 p-4 h-100" style="background: #f8f9fa;">
                         <h3 class="fw-bold mb-3 text-dark">Sambutan Kepala Sekolah</h3>
                         <p class="fs-5 text-muted">
-                           {{ $kepala->ucapan ?? 'tidak ada data' }}
+                            {{ $kepala->ucapan ?? 'tidak ada data' }}
                         </p>
                         <h5 class="fw-bold mt-3 text-danger">{{ $kepala->nama ?? 'tidak ada data' }}</h5>
                         <p class="text-muted">Kepala Sekolah SMK 17 Agustus 1945 Muncar</p>
@@ -75,21 +78,21 @@
             <div class="row g-4">
                 {{-- looping jurusan --}}
                 @foreach ($datas as $data)
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-                        <a href="{{ asset('storage/' . $data->image) }}" target="_blank">
-                            <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top" alt="AKL"
-                                style="height:180px; object-fit:cover;">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="fw-semibold">
-                                <a href="{{ route('profil.show', $data->id) }}" class="text-decoration-none text-dark">
-                                    {{ $data->nama_jurusan }}
-                                </a>
-                            </h5>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                            <a href="{{ asset('storage/' . $data->image) }}" target="_blank">
+                                <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top" alt="AKL"
+                                    style="height:180px; object-fit:cover;">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="fw-semibold">
+                                    <a href="{{ route('profil.show', $data->id) }}" class="text-decoration-none text-dark">
+                                        {{ $data->nama_jurusan }}
+                                    </a>
+                                </h5>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -113,21 +116,24 @@
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-trophy-fill display-4 text-warning mb-3"></i>
                                     <h5 class="fw-bold">Juara 2 LKS Perhotelan</h5>
-                                    <p class="text-muted">Meraih Juara 2 LKS bidang Perhotelan tingkat Kabupaten Banyuwangi.</p>
+                                    <p class="text-muted">Meraih Juara 2 LKS bidang Perhotelan tingkat Kabupaten Banyuwangi.
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-award-fill display-4 text-primary mb-3"></i>
                                     <h5 class="fw-bold">Akreditasi B</h5>
-                                    <p class="text-muted">Sekolah terakreditasi B dengan standar mutu pendidikan yang baik.</p>
+                                    <p class="text-muted">Sekolah terakreditasi B dengan standar mutu pendidikan yang baik.
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-star-fill display-4 text-success mb-3"></i>
                                     <h5 class="fw-bold">ISO 9001:2008</h5>
-                                    <p class="text-muted">Bersertifikat ISO 9001:2008, menjamin kualitas manajemen sekolah.</p>
+                                    <p class="text-muted">Bersertifikat ISO 9001:2008, menjamin kualitas manajemen sekolah.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +173,8 @@
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-mic-fill display-4 text-primary mb-3"></i>
                                     <h5 class="fw-bold">Lomba Pidato</h5>
-                                    <p class="text-muted">Siswa meraih juara lomba pidato bahasa Inggris tingkat kabupaten.</p>
+                                    <p class="text-muted">Siswa meraih juara lomba pidato bahasa Inggris tingkat kabupaten.
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
@@ -255,53 +262,66 @@
 
     <!-- FIX CSS ANTI GESER -->
     <style>
-        html, body {
+        html,
+        body {
             max-width: 100%;
             overflow-x: hidden;
         }
+
         section {
             overflow-x: hidden;
         }
+
         img {
             max-width: 100%;
             height: auto;
             display: block;
         }
+
         .container {
             max-width: 100%;
             overflow-x: hidden;
         }
+
         .hover-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: 12px;
         }
+
         .hover-card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+
         .hover-card img {
             transition: transform 0.4s ease;
         }
+
         .hover-card:hover img {
             transform: scale(1.1);
         }
+
         .hover-card a.text-dark:hover {
             color: #800000 !important;
             text-decoration: underline;
             transition: 0.3s;
         }
+
         .prestasi-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: #fff;
         }
+
         .prestasi-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
         }
+
         .fasilitas-card {
             background: #fff;
             transition: all 0.3s ease;
         }
+
         .fasilitas-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
