@@ -2,9 +2,6 @@
 @extends('layouts.main')
 
 @section('content')
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <!-- Hero Section -->
     <section class="hero text-white d-flex align-items-center justify-content-center"
         style="background: url('{{ asset('images/upacara.jpg') }}') center/cover no-repeat; min-height: 70vh; position: relative;"
@@ -76,7 +73,6 @@
         <div class="container">
             <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Program Keahlian</h2>
             <div class="row g-4">
-                {{-- looping jurusan --}}
                 @foreach ($datas as $data)
                     <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                         <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
@@ -112,7 +108,7 @@
                     <!-- Slide 1 -->
                     <div class="carousel-item active">
                         <div class="row g-4">
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-md-4">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-trophy-fill display-4 text-warning mb-3"></i>
                                     <h5 class="fw-bold">Juara 2 LKS Perhotelan</h5>
@@ -120,7 +116,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="col-md-4">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-award-fill display-4 text-primary mb-3"></i>
                                     <h5 class="fw-bold">Akreditasi B</h5>
@@ -128,7 +124,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="col-md-4">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-star-fill display-4 text-success mb-3"></i>
                                     <h5 class="fw-bold">ISO 9001:2008</h5>
@@ -142,53 +138,25 @@
                     <!-- Slide 2 -->
                     <div class="carousel-item">
                         <div class="row g-4">
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-md-4">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-people-fill display-4 text-danger mb-3"></i>
                                     <h5 class="fw-bold">Tim Olahraga</h5>
                                     <p class="text-muted">Meraih juara di berbagai ajang olahraga tingkat kabupaten.</p>
                                 </div>
                             </div>
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="col-md-4">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-lightbulb-fill display-4 text-warning mb-3"></i>
                                     <h5 class="fw-bold">Inovasi Siswa</h5>
                                     <p class="text-muted">Siswa menghasilkan karya inovatif di bidang teknologi.</p>
                                 </div>
                             </div>
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="col-md-4">
                                 <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
                                     <i class="bi bi-book-fill display-4 text-info mb-3"></i>
                                     <h5 class="fw-bold">Juara Karya Ilmiah</h5>
                                     <p class="text-muted">Menjadi juara lomba karya ilmiah tingkat provinsi.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-item">
-                        <div class="row g-4">
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                                    <i class="bi bi-mic-fill display-4 text-primary mb-3"></i>
-                                    <h5 class="fw-bold">Lomba Pidato</h5>
-                                    <p class="text-muted">Siswa meraih juara lomba pidato bahasa Inggris tingkat kabupaten.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                                    <i class="bi bi-palette-fill display-4 text-success mb-3"></i>
-                                    <h5 class="fw-bold">Juara Seni</h5>
-                                    <p class="text-muted">Prestasi di bidang seni lukis dan desain kreatif.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 prestasi-card">
-                                    <i class="bi bi-gear-fill display-4 text-dark mb-3"></i>
-                                    <h5 class="fw-bold">Teknologi Mesin</h5>
-                                    <p class="text-muted">Kejuaraan praktik mesin tingkat provinsi.</p>
                                 </div>
                             </div>
                         </div>
@@ -249,18 +217,10 @@
             </div>
         </div>
     </section>
+@endsection
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-        });
-    </script>
-
-    <!-- FIX CSS ANTI GESER -->
+@push('styles')
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         html,
         body {
@@ -276,11 +236,6 @@
             max-width: 100%;
             height: auto;
             display: block;
-        }
-
-        .container {
-            max-width: 100%;
-            overflow-x: hidden;
         }
 
         .hover-card {
@@ -327,4 +282,15 @@
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
         }
     </style>
-@endsection
+@endpush
+
+@push('scripts')
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    </script>
+@endpush

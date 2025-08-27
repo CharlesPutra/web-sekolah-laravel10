@@ -32,14 +32,11 @@
             padding: 8px 12px;
         }
 
-        /* Navbar sticky */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1030;
-        }
-
+        /* Navbar sticky fix */
         .navbar.sticky-top {
+            position: sticky !important;
+            top: 0;
+            z-index: 1100; /* pastikan di atas konten lain */
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
         }
 
