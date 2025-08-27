@@ -53,6 +53,10 @@
                                class="btn btn-sm btn-warning">
                                 <i class="bi bi-pencil-square"></i> Edit
                             </a>
+                            <a href="{{ route('kepalasekolah.show', $data->id) }}" 
+                               class="btn btn-sm btn-secondary">
+                                <i class="bi bi-pencil-square"></i> Show
+                            </a>
                             <form action="{{ route('kepalasekolah.destroy', $data->id) }}" 
                                   method="POST" class="d-inline"
                                   onsubmit="return confirm('Yakin ingin menghapus data ini?')">

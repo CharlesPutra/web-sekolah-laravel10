@@ -39,7 +39,8 @@ class TentangSekolahController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = TentangSekolah::findOrFail($id);
+        return view('tentangsekolah_admin.show',compact('show'));
     }
 
     /**

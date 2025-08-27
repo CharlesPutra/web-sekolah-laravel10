@@ -44,7 +44,8 @@ class VisiMisiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = VisiMisi::findOrFail($id);
+        return view('visimisi_admin.show',compact('show'));
     }
 
     /**

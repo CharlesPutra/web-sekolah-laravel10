@@ -54,7 +54,8 @@ class PrestasiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = Prestasi::findOrFail($id);
+        return view('prestasi admin.show',compact('show'));
     }
 
     /**

@@ -56,7 +56,8 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = Berita::findOrFail($id);
+        return view('berita admin.show',compact('show'));
     }
 
     /**

@@ -54,7 +54,8 @@ class KepalaSekolahController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = KepalaSekolah::findOrFail($id);
+        return view('kepalasekolah_admin.show',compact('show'));
     }
 
     /**

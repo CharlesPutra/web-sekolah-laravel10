@@ -10,7 +10,7 @@
                         <i class="bi bi-plus-circle"></i> Tambah Menu
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('ekstrakulikuler.update', $edit->id) }}" method="POST"
+                        <form action="{{ route('ekstrakulikuler.update', $show->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -18,14 +18,13 @@
                             {{-- Gambar --}}
                             <div class="mb-3">
                                 <label for="image" class="form-label">Gambar Menu (Opsional)</label>
-                                @if ($edit->image)
+                                @if ($show->image)
                                     <div class="mb-2">
-                                        <img src="{{ asset('storage/' . $edit->image) }}" alt="Gambar Menu"
+                                        <img src="{{ asset('storage/' . $show->image) }}" alt="Gambar Menu"
                                             class="img-thumbnail rounded" style="max-width: 150px;">
                                     </div>
                                 @endif
-                                <input type="file" name="image" id="image"
-                                    class="form-control @error('image') is-invalid @enderror">
+        
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -36,7 +35,7 @@
                                 <label for="name" class="form-label">Nama jurusan</label>
                                 <input type="text" name="name" id="name"
                                     class="form-control @error('name') is-invalid @enderror"
-                                    value="{{ old('name',$edit->name) }}" placeholder="Masukkan name">
+                                    value="{{ old('name',$show->name) }}" placeholder="Masukkan name" disabled>
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -46,7 +45,7 @@
                             <div class="mb-3">
                                 <label for="nama_panjang" class="form-label">Deskripsi</label>
                                 <textarea name="nama_panjang" id="nama_panjang" class="form-control @error('nama_panjang') is-invalid @enderror" rows="4"
-                                    placeholder="Tulis nama_panjang juara">{{ old('nama_panjang',$edit->nama_panjang) }}</textarea>
+                                    placeholder="Tulis nama_panjang juara" disabled>{{ old('nama_panjang',$show->nama_panjang) }}</textarea>
                                 @error('nama_panjang')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -56,9 +55,6 @@
                                 <a href="{{ route('ekstrakulikuler.index') }}" class="btn btn-secondary">
                                     <i class="bi bi-arrow-left"></i> Kembali
                                 </a>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-save"></i> Simpan
-                                </button>
                             </div>
                         </form>
                     </div>

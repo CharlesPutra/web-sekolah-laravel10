@@ -45,7 +45,8 @@ class InfrastrukturController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = Infrastruktur::findOrFail($id);
+        return view('infrastruktur_admin.show',compact('show'));
     }
 
     /**

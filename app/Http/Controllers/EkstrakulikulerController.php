@@ -54,7 +54,8 @@ class EkstrakulikulerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = Ekstrakulikuler::findOrFail($id);
+        return view('ekstra_admin.show',compact('show'));
     }
 
     /**
