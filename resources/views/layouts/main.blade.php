@@ -241,6 +241,11 @@
 <!-- End Footer -->
 
 <style>
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     /* Ratakan teks kanan-kiri */
     .text-justify {
         text-align: justify;
