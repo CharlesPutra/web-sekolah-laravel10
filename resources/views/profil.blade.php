@@ -10,7 +10,7 @@
             style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6);"></div>
         <div class="container text-center position-relative">
             <h1 class="display-4 fw-bold">Profil SMK 17 Agustus 1945 Muncar</h1>
-            <p class="lead">Mandiri, Terampil Siap KERJA!</p>
+            <p class="lead">Mandiri, Terampil Siap Kerja!</p>
         </div>
     </section>
 
@@ -68,31 +68,82 @@
         </div>
     </section>
 
-    <!-- Program Keahlian -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Program Keahlian</h2>
-            <div class="row g-4">
-                @foreach ($datas as $data)
-                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
-                            <a href="{{ asset('storage/' . $data->image) }}" target="_blank">
-                                <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top" alt="AKL"
-                                    style="height:180px; object-fit:cover;">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="fw-semibold">
-                                    <a href="{{ route('profil.show', $data->id) }}" class="text-decoration-none text-dark">
-                                        {{ $data->nama_jurusan }}
-                                    </a>
-                                </h5>
-                            </div>
+  <!-- Program Keahlian -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Program Keahlian</h2>
+        <div class="row g-4">
+            @foreach ($datas as $data)
+                @php
+                    // kasih mapping nama jurusan ke class
+                    $jurusanClass = match(strtolower($data->nama_jurusan)) {
+                        'rekayasa perangkat lunak' => 'jurusan-rpl',
+                        'akuntansi' => 'jurusan-akl',
+                        'bisnis daring pemasaran' => 'jurusan-bdp',
+                        'perhotelan' => 'jurusan-perhotelan',
+                        'teknik kendaraan otomotif' => 'jurusan-tkr',
+                        'teknik pengelasan' => 'jurusan-pengelasan',
+                        default => 'jurusan-default',
+                    };
+                @endphp
+
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm text-center overflow-hidden hover-card">
+                        <a href="{{ asset('storage/' . $data->image) }}" target="_blank">
+                            <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top"
+                                alt="{{ $data->nama_jurusan }}" style="height:180px; object-fit:cover;">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="fw-semibold">
+                                <a href="{{ route('profil.show', $data->id) }}"
+                                   class="text-decoration-none text-dark jurusan-link {{ $jurusanClass }}">
+                                    {{ $data->nama_jurusan }}
+                                </a>
+                            </h5>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+<style>
+    /* Hover warna per jurusan */
+.jurusan-link {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.jurusan-rpl:hover {
+    color: #4da6ff !important; /* biru muda */
+    text-shadow: 0 0 5px rgba(77,166,255,0.5);
+}
+
+.jurusan-akl:hover {
+    color: #e63946 !important; /* merah */
+    text-shadow: 0 0 5px rgba(230,57,70,0.5);
+}
+
+.jurusan-bdp:hover {
+    color: #2ecc71 !important; /* hijau */
+    text-shadow: 0 0 5px rgba(46,204,113,0.5);
+}
+
+.jurusan-perhotelan:hover {
+    color: #f1c40f !important; /* kuning */
+    text-shadow: 0 0 5px rgba(241,196,15,0.5);
+}
+
+.jurusan-tkr:hover {
+    color: #800000 !important; /* merah tua */
+    text-shadow: 0 0 5px rgba(128,0,0,0.5);
+}
+
+.jurusan-pengelasan:hover {
+    color: #003366 !important; /* biru tua */
+    text-shadow: 0 0 5px rgba(0,51,102,0.5);
+}
+
+</style>
 
     <!-- Prestasi -->
     <section class="py-5" style="background: #f9f9f9;">
