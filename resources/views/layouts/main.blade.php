@@ -19,6 +19,14 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
+        body {
+    overflow-x: hidden; /* cegah geser kanan-kiri */
+        }
+
+        .container, .row {
+            max-width: 100%;
+            overflow-x: hidden; /* pastikan grid bootstrap nggak bikin meluber */
+        }
         /* Warna dasar navbar */
         .bg-maroon {
             background-color: #800000;
@@ -75,8 +83,8 @@
 
         /* Logo sekolah */
         .school-logo {
-            height: 60px;
-            margin-right: 15px;
+            height: 50px;
+            margin-right: 10px;
         }
 
         /* Tombol login */
@@ -241,11 +249,6 @@
 <!-- End Footer -->
 
 <style>
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
     /* Ratakan teks kanan-kiri */
     .text-justify {
         text-align: justify;

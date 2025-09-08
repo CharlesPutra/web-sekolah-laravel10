@@ -46,7 +46,7 @@
                 <img src="{{ asset('images/logo80.png') }}" alt="HUT 80 RI" class="img-fluid shadow rounded-4">
             </div>
             <!-- Teks -->
-            <div class="col-md-6" data-aos="fade-up">
+            <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right"> 
                 <h2 class="fw-bold">HUT ke-80 RI</h2>
                 <p class="lead text-muted">"Bersatu Berdaulat, Rakyat Sejahtera, Indonesia Maju"</p>
             </div>

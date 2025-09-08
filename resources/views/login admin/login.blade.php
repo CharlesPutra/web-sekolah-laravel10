@@ -97,7 +97,7 @@
             </div>
         @endif
 
-        <h2>Login</h2>
+        <h2>Login Khusus ADMIN</h2>
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="mb-3 text-start">
