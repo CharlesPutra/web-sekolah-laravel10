@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <form action="{{ route('keterampilan.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            
+
                             {{-- Gambar --}}
                             <div class="mb-3">
                                 <label for="image" class="form-label">Gambar Menu</label>
@@ -44,7 +44,7 @@
                                 @enderror
                             </div>
 
-                              {{-- Gambar --}}
+                            {{-- Gambar --}}
                             <div class="mb-3">
                                 <label for="foto" class="form-label">Foto Kaprog</label>
                                 <input type="file" name="foto" id="foto"
@@ -54,7 +54,7 @@
                                 @enderror
                             </div>
 
-                              {{-- juara --}}
+                            {{-- juara --}}
                             <div class="mb-3">
                                 <label for="nama_kaprog" class="form-label">Nama Kaprog</label>
                                 <input type="text" name="nama_kaprog" id="nama_kaprog"
@@ -65,27 +65,94 @@
                                 @enderror
                             </div>
 
-                              {{-- juara --}}
+                            {{-- juara --}}
                             <div class="mb-3">
                                 <label for="nip" class="form-label">No NIP</label>
                                 <input type="number" name="nip" id="nip"
-                                    class="form-control @error('nip') is-invalid @enderror"
-                                    value="{{ old('nip') }}" placeholder="Masukkan nip">
+                                    class="form-control @error('nip') is-invalid @enderror" value="{{ old('nip') }}"
+                                    placeholder="Masukkan nip">
                                 @error('nip')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                              {{-- juara --}}
+                            {{-- juara --}}
                             <div class="mb-3">
                                 <label for="phone" class="form-label">No Phone</label>
                                 <input type="text" name="phone" id="phone"
-                                    class="form-control @error('phone') is-invalid @enderror"
-                                    value="{{ old('phone') }}" placeholder="Masukkan mulai dari +62 atau 0">
+                                    class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}"
+                                    placeholder="Masukkan mulai dari +62 atau 0">
                                 @error('phone')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="mb-3">
+                                <label for="visi" class="form-label">Visi</label>
+                                <textarea name="visi" id="visi" class="form-control @error('visi') is-invalid @enderror" rows="4"
+                                    placeholder="Tulis Deskkripsi ekstra">{{ old('visi') }}</textarea>
+                                @error('visi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="misi" class="form-label">Misi</label>
+                                <textarea name="misi" id="misi" class="form-control @error('misi') is-invalid @enderror" rows="4"
+                                    placeholder="Tulis Deskkripsi ekstra">{{ old('misi') }}</textarea>
+                                @error('misi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="presfot" class="form-label">Foto Prestasi Jurusan</label>
+                                <input type="file" name="presfot" id="presfot"
+                                    class="form-control @error('presfot') is-invalid @enderror">
+                                @error('presfot')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="juara" class="form-label">Kejuaraan</label>
+                                <input type="text" name="juara" id="juara"
+                                    class="form-control @error('juara') is-invalid @enderror"
+                                    value="{{ old('juara') }}" placeholder="Masukkan juara">
+                                @error('juara')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="alumfot" class="form-label">Foto Alumni Jurusan</label>
+                                <input type="file" name="alumfot" id="alumfot"
+                                    class="form-control @error('alumfot') is-invalid @enderror">
+                                @error('alumfot')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="namaalum" class="form-label">Nama Alumni</label>
+                                <input type="text" name="namaalum" id="namaalum"
+                                    class="form-control @error('namaalum') is-invalid @enderror"
+                                    value="{{ old('namaalum') }}" placeholder="Masukkan namaalum">
+                                @error('namaalum')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="desalum" class="form-label">Deskripsi Alumni</label>
+                                <textarea name="desalum" id="desalum" class="form-control @error('desalum') is-invalid @enderror" rows="4"
+                                    placeholder="Tulis Deskkripsi ekstra">{{ old('desalum') }}</textarea>
+                                @error('desalum')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+
 
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('prestasi.index') }}" class="btn btn-secondary">

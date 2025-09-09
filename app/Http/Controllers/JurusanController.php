@@ -37,7 +37,14 @@ class JurusanController extends Controller
             'foto' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
             'nama_kaprog' => 'required',
             'nip' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
+            'visi' => 'required',
+            'misi' => 'required',
+            'presfot' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            'juara' => 'required',
+            'alumfot' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            'namaalum' => 'required',
+            'desalum' => 'required'
         ]);
 
         $imagePath = null;
@@ -49,6 +56,16 @@ class JurusanController extends Controller
             $fotoPath = $request->file('foto')->store('image', 'public');
         }
 
+        $presFot = null;
+        if ($request->hasFile('presfot')) {
+            $presFot = $request->file('presfot')->store('image', 'public');
+        }
+
+        $alumFot = null;
+        if ($request->hasFile('alumfot')) {
+            $alumFot = $request->file('alumfot')->store('image', 'public');
+        }
+
         Jurusan::create([
             'image' => $imagePath,
             'nama_jurusan' => $request->nama_jurusan,
@@ -56,7 +73,14 @@ class JurusanController extends Controller
             'foto' => $fotoPath,
             'nama_kaprog' => $request->nama_kaprog,
             'nip' => $request->nip,
-            'phone' => $request->nip,
+            'phone' => $request->phone,
+            'visi' => $request->visi,
+            'misi' => $request->misi,
+            'presfot' => $presFot,
+            'juara' => $request->juara,
+            'alumfot' => $alumFot,
+            'namaalum' => $request->namaalum,
+            'desalum' => $request->desalum,
         ]);
         return redirect()->route('keterampilan.index')->with('success',);
     }
@@ -67,7 +91,7 @@ class JurusanController extends Controller
     public function show(string $id)
     {
         $show = Jurusan::findOrFail($id);
-        return view('jurusan_admin.show',compact('show'));
+        return view('jurusan_admin.show', compact('show'));
     }
 
     /**
@@ -85,13 +109,20 @@ class JurusanController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:png,jpg,png|max:2048',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
             'nama_jurusan' => 'required',
             'deskripsi' => 'required',
             'foto' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
             'nama_kaprog' => 'required',
             'nip' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
+            'visi' => 'required',
+            'misi' => 'required',
+            'presfot' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            'juara' => 'required',
+            'alumfot' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            'namaalum' => 'required',
+            'desalum' => 'required'
         ]);
 
         $jurusan = Jurusan::findOrFail($id);
@@ -101,6 +132,12 @@ class JurusanController extends Controller
         }
         if ($jurusan->foto && Storage::disk('public')->exists($jurusan->foto)) {
             Storage::disk('public')->delete($jurusan->foto);
+        }
+        if ($jurusan->presfot && Storage::disk('public')->exists($jurusan->presfot)) {
+            Storage::disk('public')->delete($jurusan->presfot);
+        }
+        if ($jurusan->alumfot && Storage::disk('public')->exists($jurusan->alumfot)) {
+            Storage::disk('public')->delete($jurusan->alumfot);
         }
 
         if ($request->hasFile('image')) {
@@ -112,12 +149,25 @@ class JurusanController extends Controller
             $jurusan->foto = $fotoPath;
         }
 
+        if ($request->hasFile('presfot')) {
+            $presFot = $request->file('presfot')->store('image', 'public');
+        }
+
+        if ($request->hasFile('alumfot')) {
+            $alumFot = $request->file('alumfot')->store('image', 'public');
+        }
+
         $jurusan->update([
             'nama_jurusan' => $request->nama_jurusan,
             'deskripsi' => $request->deskripsi,
             'nama_kaprog' => $request->nama_kaprog,
             'nip' => $request->nip,
-            'phone' => $request->nip,
+            'phone' => $request->phone,
+            'visi' => $request->visi,
+            'misi' => $request->misi,
+            'juara' => $request->juara,
+            'namaalum' => $request->namaalum,
+            'desalum' => $request->desalum,
         ]);
 
         return redirect()->route('keterampilan.index')->with('warning', 'Data jurusan berhasil di ubah');
@@ -135,6 +185,12 @@ class JurusanController extends Controller
         }
         if ($hapus->foto && Storage::disk('public')->exists($hapus->foto)) {
             Storage::disk('public')->delete($hapus->foto);
+        }
+        if ($hapus->presfot && Storage::disk('public')->exists($hapus->presfot)) {
+            Storage::disk('public')->delete($hapus->presfot);
+        }
+        if ($hapus->alumfot && Storage::disk('public')->exists($hapus->alumfot)) {
+            Storage::disk('public')->delete($hapus->alumfot);
         }
 
         $hapus->delete();
