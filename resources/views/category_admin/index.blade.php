@@ -5,10 +5,10 @@
     {{-- Header --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold text-dark">
-            <i class="bi bi-trophy-fill me-2 text-warning"></i> Daftar Kejuaraan
+            <i class="bi bi-newspaper me-2 text-primary"></i> Daftar Category
         </h2>
-        <a href="{{ route('prestasi.create') }}" class="btn btn-primary shadow-sm">
-            <i class="bi bi-plus-circle me-1"></i> Tambah Kejuaraan
+        <a href="{{ route('category.create') }}" class="btn btn-primary shadow-sm">
+            <i class="bi bi-plus-circle me-1"></i> Tambah Category
         </a>
     </div>
 
@@ -22,16 +22,13 @@
         @endif
     @endforeach
 
-    {{-- Tabel Prestasi --}}
+    {{-- Tabel Berita --}}
     <div class="table-responsive shadow-sm">
         <table class="table table-striped table-hover align-middle">
             <thead class="table-primary">
                 <tr>
                     <th>No</th>
-                    <th>Foto</th>
                     <th>Category</th>
-                    <th>Juara</th>
-                    <th>Deskripsi</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -39,29 +36,20 @@
                 @forelse ($datas as $data)
                     <tr>
                         <td>{{ $loop->iteration + ($datas->currentPage() - 1) * $datas->perPage() }}</td>
+                     
+                        <td class="fw-bold">{{ $data->category }}</td>
                         <td>
-                            <img src="{{ asset('storage/' . $data->image) }}"
-                                 alt="{{ $data->juara }}"
-                                 class="rounded"
-                                 style="width: 60px; height: 60px; object-fit: cover;">
-                        </td>
-                        <td class="fw-bold">{{ $data->category->category }}</td>
-                        <td class="fw-bold">{{ $data->juara }}</td>
-                        <td style="max-width: 300px;" class="text-truncate" title="{{ $data->deskripsi }}">
-                            {{ $data->deskripsi }}
-                        </td>
-                        <td>
-                            <a href="{{ route('prestasi.edit', $data->id) }}"
+                            <a href="{{ route('category.edit', $data->id) }}"
                                class="btn btn-sm btn-warning">
                                 <i class="bi bi-pencil-square"></i> Edit
                             </a>
-                            <a href="{{ route('prestasi.show', $data->id) }}"
+                            {{-- <a href="{{ route('category.show', $data->id) }}"
                                class="btn btn-sm btn-secondary">
                                 <i class="bi bi-pencil-square"></i> Show
-                            </a>
-                            <form action="{{ route('prestasi.destroy', $data->id) }}" 
+                            </a> --}}
+                            <form action="{{ route('category.destroy', $data->id) }}" 
                                   method="POST" class="d-inline"
-                                  onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                  onsubmit="return confirm('Yakin ingin menghapus berita ini?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">
@@ -72,9 +60,9 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="text-center py-4">
+                        <td colspan="5" class="text-center py-4">
                             <i class="bi bi-folder-x fs-3 d-block mb-2"></i>
-                            Tidak ada data kejuaraan tersedia.
+                            Tidak ada berita tersedia.
                         </td>
                     </tr>
                 @endforelse

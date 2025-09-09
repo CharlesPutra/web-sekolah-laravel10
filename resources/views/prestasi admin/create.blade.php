@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <form action="{{ route('prestasi.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            
+
                             {{-- Gambar --}}
                             <div class="mb-3">
                                 <label for="image" class="form-label">Gambar Menu</label>
@@ -23,12 +23,28 @@
                                 @enderror
                             </div>
 
+                            <div class="mb-3">
+                                <label for="category_id" class="form-label">Pilih Kategori</label>
+                                <select name="category_id" id="category_id"
+                                    class="form-select @error('category_id') is-invalid @enderror">
+                                    <option selected>-- Pilih Kategori --</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
                             {{-- juara --}}
                             <div class="mb-3">
                                 <label for="juara" class="form-label">Juara</label>
                                 <input type="text" name="juara" id="juara"
-                                    class="form-control @error('juara') is-invalid @enderror"
-                                    value="{{ old('juara') }}" placeholder="Masukkan Kejuaraan">
+                                    class="form-control @error('juara') is-invalid @enderror" value="{{ old('juara') }}"
+                                    placeholder="Masukkan Kejuaraan">
                                 @error('juara')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

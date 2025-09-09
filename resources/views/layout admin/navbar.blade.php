@@ -86,6 +86,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('ekstrakulikuler.index') }}"><i class="bi bi-dribbble"></i> Ekstrakurikuler</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}"><i class="bi bi-dribbble"></i> Category</a>
+          </li>
 
           <!-- Dropdown Profil Sekolah -->
           <li class="nav-item dropdown">

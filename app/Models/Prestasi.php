@@ -11,5 +11,9 @@ class Prestasi extends Model
 
     protected $table = 'prestasis';
     protected $primaryKey = 'id';
-    protected $fillable = ['image','juara','deskripsi'];
+    protected $fillable = ['image','category_id','juara','deskripsi'];
+
+    public function category() {
+        return $this->belongsTo(Category::class, 'category_id','id');
+    }
 }

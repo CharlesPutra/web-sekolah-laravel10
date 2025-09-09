@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Prestasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,7 +14,7 @@ class PrestasiController extends Controller
      */
     public function index()
     {
-        $datas = Prestasi::paginate(6);
+        $datas = Prestasi::with('category')->paginate(6);
         return view('prestasi admin.index',compact('datas'));
     }
 
@@ -22,7 +23,8 @@ class PrestasiController extends Controller
      */
     public function create()
     {
-        return view('prestasi admin.create');
+        $categories = Category::all();
+        return view('prestasi admin.create', compact('categories'));
     }
 
     /**
@@ -32,6 +34,7 @@ class PrestasiController extends Controller
     {
         $request->validate([
             'image' => 'nullable|image|mimes:png,jpg,png|max:2048',
+            'category_id' => 'required|exists:categories,id',
             'juara' => 'required',
             'deskripsi' => 'required',
         ]);
@@ -43,6 +46,7 @@ class PrestasiController extends Controller
 
         Prestasi::create([
             'image' => $imagePath,
+            'category_id' => $request->category_id,
             'juara' => $request->juara,
             'deskripsi' => $request->deskripsi,
         ]);
@@ -64,7 +68,8 @@ class PrestasiController extends Controller
     public function edit(string $id)
     {
         $edit = Prestasi::findOrFail($id);
-        return view('prestasi admin.edit', compact('edit'));
+        $categories = Category::all();
+        return view('prestasi admin.edit', compact('edit','categories'));
     }
 
     /**
@@ -74,6 +79,7 @@ class PrestasiController extends Controller
     {
          $request->validate([
             'image' => 'nullable|image|mimes:png,jpg,png|max:2048',
+            'category_id' => 'required|exists:categories,id',
             'juara' => 'required',
             'deskripsi' => 'required',
         ]);
@@ -90,6 +96,7 @@ class PrestasiController extends Controller
         }
         
         $prestasi->update([
+            'category_id' => $request->category_id,
             'juara' => $request->juara,
             'deskripsi' => $request->deskripsi,
         ]);

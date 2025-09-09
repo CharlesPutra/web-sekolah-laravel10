@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EkstrakulikulerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfrastrukturController;
@@ -86,6 +87,8 @@ Route::middleware('auth')->group(function () {
     //route infrastruktur
     Route::resource('/infrastruktur', InfrastrukturController::class);
 
+    //route category
+    Route::resource('category', CategoryController::class);
 
     //route logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
