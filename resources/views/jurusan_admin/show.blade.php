@@ -120,25 +120,12 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="presfot" class="form-label">Foto Prestasi Jurusan </label>
-                                @if ($show->presfot)
-                                    <div class="mb-2">
-                                        <img src="{{ asset('storage/' . $show->presfot) }}" alt="Gambar Menu"
-                                            class="img-thumbnail rounded" style="max-width: 150px;">
-                                    </div>
-                                @endif
-
-                                @error('presfot')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="juara" class="form-label">Kejuaraan</label>
-                                <input type="text" name="juara" id="juara"
-                                    class="form-control @error('juara') is-invalid @enderror"
-                                    value="{{ old('juara', $show->juara) }}" placeholder="Masukkan juara" disabled>
-                                @error('juara')
+                                <label for="category_id" class="form-label">Kategori</label>
+                                <select name="category_id" id="category_id"
+                                    class="form-select @error('category_id') is-invalid @enderror" disabled>
+                                    <option value="" disabled selected>{{ $show->category->category }}</option>
+                                </select>
+                                @error('category_id')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -161,7 +148,8 @@
                                 <label for="namaalum" class="form-label">Nama Alumni</label>
                                 <input type="text" name="namaalum" id="namaalum"
                                     class="form-control @error('namaalum') is-invalid @enderror"
-                                    value="{{ old('namaalum', $show->namaalum) }}" placeholder="Masukkan namaalum" disabled>
+                                    value="{{ old('namaalum', $show->namaalum) }}" placeholder="Masukkan namaalum"
+                                    disabled>
                                 @error('namaalum')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

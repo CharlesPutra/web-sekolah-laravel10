@@ -12,14 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('jurusans', function (Blueprint $table) {
-            //visi misi
-            $table->text('visi');
-            $table->text('misi');
-            //prestasi jurusan
-            //testimoni alumni
-            $table->string('alumfot')->nullable();
-            $table->string('namaalum');
-            $table->text('desalum');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
         });
     }
 

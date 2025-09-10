@@ -13,7 +13,14 @@ class Category extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['category'];
 
+    // public function prestasi() {
+    //     return $this->hasMany(Prestasi::class, 'category_id', 'id');
+    // }
     public function prestasi() {
-        return $this->hasMany(Prestasi::class, 'category_id', 'id');
+        return $this->hasMany(Prestasi::class);
+    }
+
+    public function jurusan() {
+        return $this->hasMany(jurusan::class);
     }
 }

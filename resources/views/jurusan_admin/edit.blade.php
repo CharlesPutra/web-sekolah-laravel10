@@ -120,29 +120,22 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="presfot" class="form-label">Foto Prestasi Jurusan</label>
-                                @if ($edit->presfot)
-                                    <div class="mb-2">
-                                        <img src="{{ asset('storage/' . $edit->presfot) }}" alt="Gambar Menu"
-                                            class="img-thumbnail rounded" style="max-width: 150px;">
-                                    </div>
-                                @endif
-                                <input type="file" name="presfot" id="presfot"
-                                    class="form-control @error('presfot') is-invalid @enderror">
-                                @error('presfot')
+                                <label for="category_id" class="form-label">Kategori</label>
+                                <select name="category_id" id="category_id"
+                                    class="form-select @error('category_id') is-invalid @enderror">
+                                    <option value="">-- Pilih Kategori --</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ $edit->category_id == $category->id ? 'selected' : '' }}>
+                                            {{ $category->category }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label for="juara" class="form-label">Kejuaraan</label>
-                                <input type="text" name="juara" id="juara"
-                                    class="form-control @error('juara') is-invalid @enderror"
-                                    value="{{ old('juara', $edit->juara) }}" placeholder="Masukkan juara">
-                                @error('juara')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
 
                             <div class="mb-3">
                                 <label for="alumfot" class="form-label">Foto Alumni Jurusan</label>

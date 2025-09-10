@@ -106,21 +106,18 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="presfot" class="form-label">Foto Prestasi Jurusan</label>
-                                <input type="file" name="presfot" id="presfot"
-                                    class="form-control @error('presfot') is-invalid @enderror">
-                                @error('presfot')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="juara" class="form-label">Kejuaraan</label>
-                                <input type="text" name="juara" id="juara"
-                                    class="form-control @error('juara') is-invalid @enderror"
-                                    value="{{ old('juara') }}" placeholder="Masukkan juara">
-                                @error('juara')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                <label for="category_id" class="form-label">Pilih Kategori</label>
+                                <select name="category_id" id="category_id"
+                                    class="form-select @error('category_id') is-invalid @enderror">
+                                    <option selected>-- Pilih Kategori --</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
                             </div>
 

@@ -21,7 +21,7 @@ class ProfileController extends Controller
 
     public function deskripsi(string $id)
     {
-        $show = Jurusan::findOrFail($id);
+        $show = Jurusan::with(['category','prestasi'])->findOrFail($id);
         // dd($id, $show); // cek dulu masuk nggak  
         return view('deskripsi_jurusan', compact('show'));
     }
