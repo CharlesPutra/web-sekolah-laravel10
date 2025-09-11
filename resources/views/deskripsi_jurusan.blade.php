@@ -83,13 +83,17 @@
             left: 25%;
             border-radius: 5px;
         }
-        .img-kaprog {
-    height: 200px; /* sesuaikan tinggi */
-    width: auto;   /* supaya proporsinya tetap */
-    object-fit: cover; /* supaya gambar tetap rapi dan tidak melar */
-    margin: 0 auto;    /* optional, untuk center */
-}
 
+        .img-kaprog {
+            height: 200px;
+            /* sesuaikan tinggi */
+            width: auto;
+            /* supaya proporsinya tetap */
+            object-fit: cover;
+            /* supaya gambar tetap rapi dan tidak melar */
+            margin: 0 auto;
+            /* optional, untuk center */
+        }
     </style>
 
     <section class="py-5">
@@ -231,134 +235,135 @@
             });
         </script>
 
-<!-- Testimoni Alumni -->
-<section class="py-5 bg-light" data-aos="fade-up">
-    <div class="container">
-        <h2 class="section-title text-center mb-5" data-aos="fade-down">Testimoni Alumni</h2>
+        <!-- Testimoni Alumni -->
+        <section class="py-5 bg-light" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title text-center mb-5" data-aos="fade-down">Testimoni Alumni</h2>
 
-        <!-- Swiper -->
-        <div class="swiper testimonial-swiper">
-            <div class="swiper-wrapper">
-                @foreach ($show->alumni->chunk(3) as $chunk)
-                    <div class="swiper-slide">
-                        <div class="row justify-content-center">
-                            @foreach ($chunk as $alumni)
-                                <div class="col-md-4 mb-4">
-                                    <div class="testimonial-card shadow-lg rounded-4 text-center p-4 h-100">
-                                        <div class="testimonial-top bg-maroon position-relative rounded-top-4">
-                                            <div class="testimonial-img-wrapper mx-auto">
-                                                <img src="{{ asset('storage/' . $alumni->fotoalum) }}"
-                                                    alt="{{ $alumni->namaalum }}" class="rounded-circle shadow" width="90"
-                                                    height="90" style="object-fit: cover;">
+                <div class="swiper testimonial-swiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($alumnisPerAngkatan as $angkatan => $alumnis)
+                            <div class="swiper-slide">
+                                <h4 class="text-center mb-4">Angkatan {{ $angkatan }}</h4>
+                                <div class="row justify-content-center">
+                                    @foreach ($alumnis as $alumni)
+                                        <div class="col-md-4 mb-4">
+                                            <div class="testimonial-card shadow-lg rounded-4 text-center p-4 h-100">
+                                                <div class="testimonial-top bg-maroon position-relative rounded-top-4">
+                                                    <div class="testimonial-img-wrapper mx-auto">
+                                                        <img src="{{ asset('storage/' . $alumni->fotoalum) }}"
+                                                            alt="{{ $alumni->namaalum }}" class="rounded-circle shadow"
+                                                            width="90" height="90" style="object-fit: cover;">
+                                                    </div>
+                                                </div> <br>
+
+                                                <h5 class="fw-bold mt-4 mb-1">{{ $alumni->namaalum }}</h5>
+                                                <small class="text-muted d-block mb-3">Angkatan
+                                                    {{ $alumni->angkatan }}</small>
+
+                                                <p class="text-muted fst-italic">
+                                                    "{{ $alumni->deskripsialum }}"
+                                                </p>
+
+                                                <div class="stars mt-3">
+                                                    <p>
+                                                        @for ($i = 1; $i <= 5; $i++)
+                                                            @if ($i <= $alumni->rating)
+                                                                ⭐
+                                                            @else
+                                                                ☆
+                                                            @endif
+                                                        @endfor
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div> <br>
-
-                                        <h5 class="fw-bold mt-4 mb-1">{{ $alumni->namaalum }}</h5>
-                                        <small class="text-muted d-block mb-3">{{ $alumni->angkatan }}</small>
-
-                                        <p class="text-muted fst-italic">
-                                            "{{ $alumni->deskripsialum }}"
-                                        </p>
-
-                                        <div class="stars mt-3">
-                                            <p>
-                                                @for ($i = 1; $i <= 5; $i++)
-                                                    @if ($i <= $alumni->rating)
-                                                        ⭐
-                                                    @else
-                                                        ☆
-                                                    @endif
-                                                @endfor
-                                            </p>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
-                            @endforeach
-                        </div>
+                            </div>
+                        @endforeach
                     </div>
-                @endforeach
+
+                    <!-- Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination mt-4"></div>
+                </div>
             </div>
+        </section>
 
-            <!-- Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
 
-            <!-- Pagination -->
-            <div class="swiper-pagination mt-4"></div>
-        </div>
-    </div>
-</section>
 
-<!-- CSS -->
-<style>
-.bg-maroon {
-    background-color: maroon !important;
-    color: #fff;
-}
+        <!-- CSS -->
+        <style>
+            .bg-maroon {
+                background-color: maroon !important;
+                color: #fff;
+            }
 
-.testimonial-card {
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
+            .testimonial-card {
+                background: #fff;
+                border-radius: 20px;
+                overflow: hidden;
+                position: relative;
+            }
 
-.testimonial-top {
-    height: 100px;
-}
+            .testimonial-top {
+                height: 100px;
+            }
 
-.testimonial-img-wrapper {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #fff;
-    padding: 5px;
-    position: absolute;
-    bottom: -45px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+            .testimonial-img-wrapper {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: #fff;
+                padding: 5px;
+                position: absolute;
+                bottom: -45px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
 
-.stars i {
-    font-size: 18px;
-    margin: 0 2px;
-}
+            .stars i {
+                font-size: 18px;
+                margin: 0 2px;
+            }
 
-/* Swiper Custom */
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-}
+            /* Swiper Custom */
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+            }
 
-.swiper-button-next,
-.swiper-button-prev {
-    color: maroon;
-}
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: maroon;
+            }
 
-.swiper-pagination-bullet {
-    background: maroon;
-}
-</style>
+            .swiper-pagination-bullet {
+                background: maroon;
+            }
+        </style>
 
-<!-- Swiper JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <!-- Swiper JS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-<script>
-var swiper = new Swiper(".testimonial-swiper", {
-    slidesPerView: 1, // 1 slide = 1 grup 3 testimoni
-    spaceBetween: 30,
-    loop: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-</script>
+        <script>
+            var swiper = new Swiper(".testimonial-swiper", {
+                slidesPerView: 1, // 1 slide = 1 grup 3 testimoni
+                spaceBetween: 30,
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
 
 
         <!-- Font Awesome -->
