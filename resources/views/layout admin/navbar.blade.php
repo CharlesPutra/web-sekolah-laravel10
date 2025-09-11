@@ -89,6 +89,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('category.index') }}"><i class="bi bi-dribbble"></i> Category</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('alumni.index') }}"><i class="bi bi-dribbble"></i> Alumni</a>
+          </li>
 
           <!-- Dropdown Profil Sekolah -->
           <li class="nav-item dropdown">

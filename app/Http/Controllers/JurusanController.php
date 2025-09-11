@@ -42,9 +42,6 @@ class JurusanController extends Controller
             'phone' => 'required',
             'visi' => 'required',
             'misi' => 'required',
-            'alumfot' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
-            'namaalum' => 'required',
-            'desalum' => 'required',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -57,10 +54,7 @@ class JurusanController extends Controller
             $fotoPath = $request->file('foto')->store('image', 'public');
         }
 
-        $alumFot = null;
-        if ($request->hasFile('alumfot')) {
-            $alumFot = $request->file('alumfot')->store('image', 'public');
-        }
+     
 
         Jurusan::create([
             'image' => $imagePath,
@@ -72,9 +66,6 @@ class JurusanController extends Controller
             'phone' => $request->phone,
             'visi' => $request->visi,
             'misi' => $request->misi,
-            'alumfot' => $alumFot,
-            'namaalum' => $request->namaalum,
-            'desalum' => $request->desalum,
             'category_id' => $request->category_id,
         ]);
         return redirect()->route('keterampilan.index')->with('success',);
@@ -114,9 +105,6 @@ class JurusanController extends Controller
             'phone' => 'required',
             'visi' => 'required',
             'misi' => 'required',
-            'alumfot' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
-            'namaalum' => 'required',
-            'desalum' => 'required',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -128,9 +116,6 @@ class JurusanController extends Controller
         if ($jurusan->foto && Storage::disk('public')->exists($jurusan->foto)) {
             Storage::disk('public')->delete($jurusan->foto);
         }
-        if ($jurusan->alumfot && Storage::disk('public')->exists($jurusan->alumfot)) {
-            Storage::disk('public')->delete($jurusan->alumfot);
-        }
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('image', 'public');
@@ -141,10 +126,6 @@ class JurusanController extends Controller
             $jurusan->foto = $fotoPath;
         }
 
-        if ($request->hasFile('alumfot')) {
-            $alumFot = $request->file('alumfot')->store('image', 'public');
-            $jurusan->alumfot = $alumFot;
-        }
 
         $jurusan->update([
             'nama_jurusan' => $request->nama_jurusan,
@@ -154,8 +135,6 @@ class JurusanController extends Controller
             'phone' => $request->phone,
             'visi' => $request->visi,
             'misi' => $request->misi,
-            'namaalum' => $request->namaalum,
-            'desalum' => $request->desalum,
             'category_id' => $request->category_id,
         ]);
 
@@ -176,9 +155,6 @@ class JurusanController extends Controller
             Storage::disk('public')->delete($hapus->foto);
         }
 
-        if ($hapus->alumfot && Storage::disk('public')->exists($hapus->alumfot)) {
-            Storage::disk('public')->delete($hapus->alumfot);
-        }
 
         $hapus->delete();
 

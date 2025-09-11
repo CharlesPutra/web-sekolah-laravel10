@@ -136,41 +136,6 @@
                                 @enderror
                             </div>
 
-
-                            <div class="mb-3">
-                                <label for="alumfot" class="form-label">Foto Alumni Jurusan</label>
-                                @if ($edit->alumfot)
-                                    <div class="mb-2">
-                                        <img src="{{ asset('storage/' . $edit->alumfot) }}" alt="Gambar Menu"
-                                            class="img-thumbnail rounded" style="max-width: 150px;">
-                                    </div>
-                                @endif
-                                <input type="file" name="alumfot" id="alumfot"
-                                    class="form-control @error('alumfot') is-invalid @enderror">
-                                @error('alumfot')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="namaalum" class="form-label">Nama Alumni</label>
-                                <input type="text" name="namaalum" id="namaalum"
-                                    class="form-control @error('namaalum') is-invalid @enderror"
-                                    value="{{ old('namaalum', $edit->namaalum) }}" placeholder="Masukkan namaalum">
-                                @error('namaalum')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="desalum" class="form-label">Deskripsi Alumni</label>
-                                <textarea name="desalum" id="desalum" class="form-control @error('desalum') is-invalid @enderror" rows="4"
-                                    placeholder="Tulis Deskkripsi ekstra">{{ old('desalum', $edit->desalum) }}</textarea>
-                                @error('desalum')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('keterampilan.index') }}" class="btn btn-secondary">
                                     <i class="bi bi-arrow-left"></i> Kembali

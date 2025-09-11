@@ -15,11 +15,7 @@ return new class extends Migration
             //visi misi
             $table->text('visi');
             $table->text('misi');
-            //prestasi jurusan
-            //testimoni alumni
-            $table->string('alumfot')->nullable();
-            $table->string('namaalum');
-            $table->text('desalum');
+            
         });
     }
 

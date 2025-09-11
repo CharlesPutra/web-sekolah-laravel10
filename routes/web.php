@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CategoryController;
@@ -89,6 +90,8 @@ Route::middleware('auth')->group(function () {
 
     //route category
     Route::resource('category', CategoryController::class);
+
+    Route::resource('alumni', AlumniController::class);
 
     //route logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

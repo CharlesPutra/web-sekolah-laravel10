@@ -20,6 +20,10 @@ class Category extends Model
         return $this->hasMany(Prestasi::class);
     }
 
+    public function alumni() {
+        return $this->hasMany(Alumni::class);
+    }
+
     public function jurusan() {
         return $this->hasMany(jurusan::class);
     }
