@@ -45,7 +45,7 @@
                                  class="rounded"
                                  style="width: 60px; height: 60px; object-fit: cover;">
                         </td>
-                        <td class="fw-bold">{{ $data->category->category }}</td>
+                        <td class="fw-bold">{{ $data->category->category ?? "category tidak ada" }}</td>
                         <td class="fw-bold">{{ $data->juara }}</td>
                         <td style="max-width: 300px;" class="text-truncate" title="{{ $data->deskripsi }}">
                             {{ $data->deskripsi }}

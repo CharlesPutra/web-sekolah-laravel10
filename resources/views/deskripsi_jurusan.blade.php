@@ -57,13 +57,37 @@
         .bg-light-alt {
             background: #fac4c4;
         }
+        .section-title-KP {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+h2.section-title-KP {
+            font-weight: 600;
+            color: maroon;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        h2.section-title-KP::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: maroon;
+            bottom: 0;
+            left: 25%;
+            border-radius: 5px;
+        }
     </style>
 
     <section class="py-5">
         <div class="container">
 
             <!-- Kepala Program -->
-            <h2 class="section-title text-center mb-5" data-aos="fade-down">Kepala Program Jurusan</h2>
+            <h2 class="section-title-KP text-center mb-5" data-aos="fade-down">Kepala Program Jurusan</h2>
             <div class="row justify-content-center">
                 <div class="col-md-4 mb-4" data-aos="zoom-in">
                     <div class="card shadow h-100 text-center">
@@ -76,6 +100,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
             <!-- Deskripsi Jurusan -->
             <h2 class="section-title text-center mb-5" data-aos="fade-up">Deskripsi Jurusan</h2>
@@ -197,86 +222,91 @@
                 });
             </script>
 
-
-            {{-- <!-- Testimoni Alumni -->
-            <section class="py-5 bg-light" data-aos="fade-up">
-                <div class="container">
-                    <h2 class="section-title text-center mb-5" data-aos="fade-down">Testimoni Alumni</h2>
-                    <div class="row">
-                        @if (!empty($show->testimoni))
-                            @foreach ($show->testimoni as $alumni)
-                                <div class="col-md-4 mb-4" data-aos="zoom-in">
-                                    <div class="card shadow-lg border-0 h-100 rounded-4">
-                                        <div class="card-body text-center p-4">
-                                            <!-- Icon kutipan -->
-                                            <div class="mb-3">
-                                                <i class="fas fa-quote-left fa-2x text-maroon"></i>
-                                            </div>
-
-                                            <!-- Pesan Testimoni -->
-                                            <p class="card-text fst-italic text-muted">
-                                                "{{ $alumni->pesan }}"
-                                            </p>
-
-                                            <!-- Foto Alumni (opsional jika ada) -->
-                                            @if (!empty($alumni->foto))
-                                                <img src="{{ asset('storage/' . $alumni->foto) }}"
-                                                    class="rounded-circle my-3 shadow" alt="{{ $alumni->nama }}"
-                                                    width="80" height="80" style="object-fit: cover;">
-                                            @endif
-
-                                            <!-- Nama & Angkatan -->
-                                            <h5 class="fw-bold mb-0">{{ $alumni->nama }}</h5>
-                                            <small class="text-muted">Angkatan {{ $alumni->angkatan }}</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="col-12">
-                                <p class="text-center text-muted">Belum ada testimoni alumni.</p>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </section> --}}
-
             <!-- Testimoni Alumni -->
-            <section class="py-5 bg-light" data-aos="fade-up">
-                <div class="container">
-                    <h2 class="section-title text-center mb-5" data-aos="fade-down">Testimoni Alumni</h2>
-                    <div class="row">
-                                <div class="col-md-4 mb-4" data-aos="zoom-in">
-                                    <div class="card shadow-lg border-0 h-100 rounded-4">
-                                        <div class="card-body text-center p-4">
-                                            <!-- Icon kutipan -->
-                                            <div class="mb-3">
-                                                <i class="fas fa-quote-left fa-2x text-maroon"></i>
-                                            </div>
+<section class="py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-down">Testimoni Alumni</h2>
+        <div class="row">
 
-                                            <!-- Pesan Testimoni -->
-                                            <p class="card-text fst-italic text-muted">
-                                                "{{ $show->desalum }}"
-                                            </p>
-
-                                            <!-- Foto Alumni (opsional jika ada) -->
-                                            @if (!empty($show->alumfot))
-                                                <img src="{{ asset('storage/' . $show->alumfot) }}"
-                                                    class="rounded-circle my-3 shadow" alt="{{ $show->nama }}"
-                                                    width="80" height="80" style="object-fit: cover;">
-                                            @endif
-
-                                            <!-- Nama & Angkatan -->
-                                            <h5 class="fw-bold mb-0">{{ $show->namaalum }}</h5>
-                                            {{-- <small class="text-muted">Angkatan {{ $alumni->angkatan }}</small> --}}
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="col-md-4 mb-4" data-aos="zoom-in">
+                <div class="testimonial-card shadow-lg rounded-4 text-center p-4 h-100">
                     
+                    <!-- Bagian atas berwarna + foto -->
+<div class="testimonial-top bg-maroon position-relative rounded-top-4">
+    <div class="testimonial-img-wrapper mx-auto">
+        @if (!empty($show->alumfot))
+            <img src="{{ asset('storage/' . $show->alumfot) }}" alt="{{ $show->namaalum }}"
+                class="rounded-circle shadow"
+                width="90" height="90" style="object-fit: cover;">
+        @else
+            <img src="https://via.placeholder.com/90"
+                class="rounded-circle shadow" alt="Foto Alumni">
+        @endif
+    </div>
+</div>
+
+
+                    <!-- Nama & Jabatan -->
+                    <h5 class="fw-bold mt-4 mb-1">{{ $show->namaalum }}</h5>
+                    <small class="text-muted d-block mb-3">Alumni</small>
+
+                    <!-- Isi Testimoni -->
+                    <p class="text-muted fst-italic">
+                        "{{ $show->desalum }}"
+                    </p>
+
+                    <!-- Rating -->
+                    <div class="stars mt-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
                     </div>
                 </div>
-            </section>
+            </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- CSS -->
+<style>
+    .bg-maroon {
+    background-color: maroon !important;
+    color: #fff;
+}
+
+    .testimonial-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+    .testimonial-top {
+        height: 100px;
+    }
+    .testimonial-img-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #fff;
+        padding: 5px;
+        position: absolute;
+        bottom: -45px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .stars i {
+        font-size: 18px;
+        margin: 0 2px;
+    }
+</style>
+
+
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
             <!-- Tombol Kembali -->
             <div class="mt-4 text-center" data-aos="fade-up">

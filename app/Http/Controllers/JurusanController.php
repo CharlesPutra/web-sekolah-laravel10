@@ -143,6 +143,7 @@ class JurusanController extends Controller
 
         if ($request->hasFile('alumfot')) {
             $alumFot = $request->file('alumfot')->store('image', 'public');
+            $jurusan->alumfot = $alumFot;
         }
 
         $jurusan->update([
