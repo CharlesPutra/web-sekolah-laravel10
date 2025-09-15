@@ -80,9 +80,34 @@
         </table>
     </div>
 
-    {{-- Pagination --}}
-    <div class="mt-4 d-flex justify-content-center">
-        {{ $datas->links('pagination::bootstrap-5') }}
-    </div>
-</div>
+<!-- Pagination -->
+            <div class="d-flex justify-content-center mt-5">
+                <nav>
+                    <ul class="pagination pagination-sm">
+                        {{-- Tombol Previous --}}
+                        <li class="page-item {{ $datas->onFirstPage() ? 'disabled' : '' }}">
+                            <a class="page-link text-maroon" href="{{ $datas->previousPageUrl() ?? '#' }}">&laquo;</a>
+                        </li>
+
+                        {{-- Nomor Halaman --}}
+                        @for ($p = 1; $p <= $datas->lastPage(); $p++)
+                            <li class="page-item {{ $datas->currentPage() == $p ? 'active' : '' }}">
+                                <a class="page-link {{ $datas->currentPage() == $p ? '' : 'text-maroon' }}"
+                                    href="{{ $datas->url($p) }}"
+                                    @if ($datas->currentPage() == $p) style="background:#800000; border-color:#800000;" @endif>
+                                    {{ $p }}
+                                </a>
+                            </li>
+                        @endfor
+
+                        {{-- Tombol Next --}}
+                        <li class="page-item {{ !$datas->hasMorePages() ? 'disabled' : '' }}">
+                            <a class="page-link text-maroon" href="{{ $datas->nextPageUrl() ?? '#' }}">&raquo;</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+
 @endsection

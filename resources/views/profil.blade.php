@@ -7,7 +7,7 @@
         style="background: url('{{ asset('images/upacara.jpg') }}') center/cover no-repeat; min-height: 70vh; position: relative;"
         data-aos="fade-down">
         <div class="overlay"
-            style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6);"></div>
+            style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5);"></div>
         <div class="container text-center position-relative">
             <h1 class="display-4 fw-bold">Profil SMK 17 Agustus 1945 Muncar</h1>
             <p class="lead">Mandiri, Terampil Siap Kerja!</p>

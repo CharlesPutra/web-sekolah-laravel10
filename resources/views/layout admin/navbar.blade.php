@@ -83,15 +83,18 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('keterampilan.index') }}"><i class="bi bi-mortarboard"></i> Jurusan</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('ekstrakulikuler.index') }}"><i class="bi bi-dribbble"></i> Ekstrakurikuler</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('category.index') }}"><i class="bi bi-dribbble"></i> Category</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('alumni.index') }}"><i class="bi bi-dribbble"></i> Alumni</a>
-          </li>
+          
+          <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="lainnyaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="bi bi-grid"></i> Lainnya
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lainnyaDropdown">
+    <li><a class="dropdown-item" href="{{ route('ekstrakulikuler.index') }}"><i class="bi bi-dribbble"></i> Ekstrakurikuler</a></li>
+    <li><a class="dropdown-item" href="{{ route('category.index') }}"><i class="bi bi-tags"></i> Category</a></li>
+    <li><a class="dropdown-item" href="{{ route('alumni.index') }}"><i class="bi bi-people"></i> Alumni</a></li>
+  </ul>
+</li>
+
 
           <!-- Dropdown Profil Sekolah -->
           <li class="nav-item dropdown">

@@ -82,11 +82,7 @@
         </table>
     </div>
 
-    {{-- Pagination --}}
-    <div class="mt-4 d-flex justify-content-center">
-        {{ $datas->links('pagination::bootstrap-5') }}
-    </div>
-</div>
+   
 
 <!-- Pagination -->
             <div class="d-flex justify-content-center mt-5">
